@@ -13,12 +13,8 @@ data_hs = pd.read_csv('/home/liangoy/Desktop/project/bphs/data/hs.csv')
 data = pd.merge(data_bp, data_hs, on='Date', how='outer')
 data = data.dropna()
 
-for i in data.columns[1:]:
-    std = data[i].std()
-    mean = data[i].mean()
-    data[i] = (data[i] - mean) / std
-
-data = np.array(data)
+data=np.array(data)[:,1:]
+data=data[1:]/(data[:-1]+0.0000001)-1
 
 data_train = data[:-1 * batch_size - long]
 data_test = data[-1 * batch_size - long:]
@@ -31,9 +27,9 @@ def next(bs=batch_size):
     for i in r:
         sample = data_train[i: i + long]
         sample = np.array(sample)
-        a.append(sample[:-1, 1:7])
-        b.append(sample[:, 7:])
-        c.append(sample[-1][4])
+        a.append(sample[:-1, :6])
+        b.append(sample[:, 6:])
+        c.append(sample[-1][3])
     return a, b, c
 
 
@@ -45,9 +41,9 @@ def next_test(bs=batch_size):
     for i in r:
         sample = data_test[i: i + long]
         sample = np.array(sample)
-        a.append(sample[:-1, 1:7])
-        b.append(sample[:, 7:])
-        c.append(sample[-1][4])
+        a.append(sample[:-1, :6])
+        b.append(sample[:, 6:])
+        c.append(sample[-1][3])
     return a, b, c
 
 
@@ -57,13 +53,16 @@ x = tf.placeholder(shape=[batch_size, long - 1, 6], dtype=tf.float32)
 y = tf.placeholder(shape=[batch_size, long, 6], dtype=tf.float32)
 z_ = tf.placeholder(shape=[batch_size], dtype=tf.float32)
 
+X=tf.nn.sigmoid(x)
+Y=tf.nn.sigmoid(y)
+
 gru = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
 state_x = gru.zero_state(batch_size, dtype=tf.float32)
 with tf.variable_scope('RNN_x'):
     for timestep in range(long - 1):
         if timestep == 1:
             tf.get_variable_scope().reuse_variables()
-        (cell_output_x, state_x) = gru(x[:, timestep], state_x)
+        (cell_output_x, state_x) = gru(X[:, timestep], state_x)
     out_put_x = state_x
 
 state_y = gru.zero_state(batch_size, dtype=tf.float32)
@@ -71,17 +70,18 @@ with tf.variable_scope('RNN_y'):
     for timestep in range(long):
         if timestep == 1:
             tf.get_variable_scope().reuse_variables()
-        (cell_output_y, state_y) = gru(y[:, timestep], state_y)
+        (cell_output_y, state_y) = gru(Y[:, timestep], state_y)
     out_put_y = state_y
 
 out_put = tf.concat([out_put_x, out_put_y], axis=1)
 
 lay1 = tf.nn.elu(ml.layer_basic(out_put, 4))
-z = ml.layer_basic(lay1, 1)[:, 0]+x[:,-1,4]
+z = ml.layer_basic(lay1, 1)[:, 0]+x[:,-1,3]
 
 loss = tf.reduce_mean((z - z_) ** 2)
 
 optimizer = tf.train.AdamOptimizer(learning_rate=0.001).minimize(loss)
+optimizer_min = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(loss)
 
 # ...................................................................
 sess = tf.Session()
@@ -94,6 +94,8 @@ for i in range(10 ** 10):
     sess.run(optimizer, feed_dict={x: a, y: b, z_: c})
     if i % 100 == 0:
         a_test, b_test, c_test = next_test()
-        train_loss = sess.run(loss, feed_dict={x: a, y: b, z_: c}) ** 0.5
-        test_loss = sess.run(loss, feed_dict={x: a_test, y: b_test, z_: c_test}) ** 0.5
-        print(train_loss,test_loss)
+        z_train,z__train,loss_train = sess.run((z,z_,loss), feed_dict={x: a, y: b, z_: c})
+        z_test,z__test,loss_test = sess.run((z,z_,loss), feed_dict={x: a_test, y: b_test, z_: c_test})
+        q_train=np.mean(np.abs(z_train-z__train))
+        q_test = np.mean(np.abs(z_test - z__test))
+        print(loss_train,loss_test,q_train,q_test)
