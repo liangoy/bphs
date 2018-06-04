@@ -4,8 +4,8 @@ import tensorflow as tf
 from util import ml
 from tensorflow.contrib.rnn import GRUCell
 
-long = 30
-batch_size = 256
+long = 15
+batch_size = 512
 
 data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv')
 data_hs = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv')
@@ -21,37 +21,22 @@ data_test = data[-1 * batch_size - long:]
 
 
 # ['Open_x', 'High_x', 'Low_x', 'Close_x', 'Adj Close_x','Volume_x', 'Open_y', 'High_y', 'Low_y', 'Close_y', 'Adj Close_y','Volume_y']
-def next(bs=batch_size):
-    r = np.random.randint(0, len(data_train) - long, bs)
+def next(data=data_train,bs=batch_size):
+    r = np.random.randint(0, len(data) - long, bs)
     a, b, c = [], [], []
     for i in r:
-        sample = data_train[i: i + long]
+        sample = data[i: i + long]
         sample = np.array(sample)
         a.append(sample[:-1, :6])
         b.append(sample[:, 6:])
-        c.append(sample[-1][3])
+        c.append(sample[-1][:4])
     return a, b, c
 
 
-###########################################################
-def next_test(bs=batch_size):
-    #r = np.random.randint(0, len(data_test) - long, bs)
-    r = range(len(data_test) - long)
-    a, b, c = [], [], []
-    for i in r:
-        sample = data_test[i: i + long]
-        sample = np.array(sample)
-        a.append(sample[:-1, :6])
-        b.append(sample[:, 6:])
-        c.append(sample[-1][3])
-    return a, b, c
-
-
-##########################################################
 
 x = tf.placeholder(shape=[batch_size, long - 1, 6], dtype=tf.float32)
 y = tf.placeholder(shape=[batch_size, long, 6], dtype=tf.float32)
-z_ = tf.placeholder(shape=[batch_size], dtype=tf.float32)
+z_ = tf.placeholder(shape=[batch_size,4], dtype=tf.float32)
 
 X=tf.nn.sigmoid(x)-0.5
 Y=tf.nn.sigmoid(y)-0.5
@@ -74,11 +59,12 @@ with tf.variable_scope('RNN_y'):
         (cell_output_y, state_y) = gru_y(Y[:, timestep], state_y)
     out_put_y = state_y
 
-out_put = tf.concat([out_put_x, out_put_y], axis=1)
-#out_put=out_put_y#+out_put_y
+lay1_x=ml.layer_basic(out_put_x,1)
+lay1_y=ml.layer_basic(out_put_y,1)
 
-lay1 = ml.layer_basic(out_put, 4)
-z = ml.layer_basic(lay1, 1)[:, 0]
+lay1=tf.concat([lay1_x,lay1_y],axis=1)
+lay2=tf.nn.elu(ml.layer_basic(lay1,4))
+z = ml.layer_basic(lay2, 1)[:, 0]
 
 loss = tf.reduce_mean((z - z_) ** 2)
 
@@ -95,7 +81,7 @@ for i in range(10 ** 10):
     a, b, c = next()
     sess.run(optimizer, feed_dict={x: a, y: b, z_: c})
     if i % 100 == 0:
-        a_test, b_test, c_test = next_test()
+        a_test, b_test, c_test = next(data=data_test)
         z_train,z__train,loss_train = sess.run((z,z_,loss), feed_dict={x: a, y: b, z_: c})
         z_test,z__test,loss_test = sess.run((z,z_,loss), feed_dict={x: a_test, y: b_test, z_: c_test})
         q_train=np.mean(np.abs(z_train-z__train))
