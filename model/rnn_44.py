@@ -4,7 +4,7 @@ import tensorflow as tf
 from util import ml
 from tensorflow.contrib.rnn import GRUCell
 
-long = 15
+long = 30
 batch_size = 512
 
 data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv')
@@ -22,10 +22,16 @@ dopen = data_t[:, 0] / data_t_1[:, 3]
 dhigh = data_t[:, 1] / data_t_1[:, 3]
 dlow = data_t[:, 2] / data_t_1[:, 3]
 dclose = data_t[:, 3] / data_t_1[:, 3]
-dmount = data_t[:, 5] / data_t_1[:, 5]
+dvolume = data_t[:, 5] / data_t_1[:, 5]
+dopen_hs = data_t[:, 6] / data_t_1[:, 9]
+dhigh_hs = data_t[:, 7] / data_t_1[:, 9]
+dlow_hs = data_t[:, 8] / data_t_1[:, 9]
+dclose_hs = data_t[:, 9] / data_t_1[:, 9]
+dvolume_hs = data_t[:, 11] / data_t_1[:, 11]
 
-data = np.concatenate([dopen, dhigh, dlow, dclose, dmount], axis=0) - 1
-data = np.reshape(data, [-1, 5], order='F')
+data = np.concatenate([dopen, dhigh, dlow, dclose, dvolume, dopen_hs, dhigh_hs, dlow_hs, dclose_hs, dvolume_hs],
+                      axis=0) - 1
+data = np.reshape(data, [-1, 10], order='F')
 
 data_train = data[:-1 * batch_size - long + 1]
 data_test = data[-1 * batch_size - long + 1:]
@@ -40,14 +46,14 @@ def next(data, bs=batch_size, random=True):
     a, b, c = [], [], []
     for i in r:
         sample = data[i: i + long]
-        a.append(sample[:-1, :6])
-        b.append(sample[:-1, :6])
+        a.append(sample[:-1, :11])
+        b.append(sample[:-1, :11])
         c.append(sample[-1][:4])
     return a, b, c
 
 
-x = tf.placeholder(shape=[batch_size, long - 1, 5], dtype=tf.float32)
-y = tf.placeholder(shape=[batch_size, long - 1, 5], dtype=tf.float32)
+x = tf.placeholder(shape=[batch_size, long - 1, 10], dtype=tf.float32)
+y = tf.placeholder(shape=[batch_size, long - 1, 10], dtype=tf.float32)
 z_ = tf.placeholder(shape=[batch_size, 4], dtype=tf.float32)
 
 X = tf.nn.sigmoid(x) - 0.5
@@ -92,7 +98,7 @@ with tf.variable_scope('RNN_x_close'):
 z_open = ml.layer_basic(out_put_x_open, 1)[:, 0]
 z_high = ml.layer_basic(out_put_x_high, 1)[:, 0]
 z_low = ml.layer_basic(out_put_x_low, 1)[:, 0]
-z_close = ml.layer_basic(out_put_x_close, 1)[:, 0]
+z_close = ml.layer_basic(tf.nn.elu(ml.layer_basic(out_put_x_close, 4)), 1)[:, 0]
 
 z_open_, z_high_, z_low_, z_close_ = z_[:, 0], z_[:, 1], z_[:, 2], z_[:, 3]
 
@@ -101,8 +107,8 @@ loss_high = tf.reduce_mean((z_high - z_high_) ** 2)
 loss_low = tf.reduce_mean((z_low - z_low_) ** 2)
 loss_close = tf.reduce_mean((z_close - z_close_) ** 2)
 
-#loss = (loss_open + loss_high + loss_low + loss_close) / 4
-loss=loss_close
+# loss = (loss_open + loss_high + loss_low + loss_close) / 4
+loss = loss_close
 optimizer = tf.train.AdamOptimizer(learning_rate=0.001).minimize(loss)
 optimizer_min = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(loss)
 

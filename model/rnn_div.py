@@ -13,7 +13,7 @@ data_hs = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv')
 data = pd.merge(data_bp, data_hs, on='Date', how='outer')
 data = data.dropna()
 
-data = np.array(data)[:, 1:]
+data = np.array(data)[:-1, 1:]
 data = np.array(data, dtype=np.float32)
 data_t = data[1:]
 data_t_1 = data[:-1] + 0.0000001
@@ -27,11 +27,11 @@ dopen_hs = data_t[:, 6] / data_t_1[:, 9]
 dhigh_hs = data_t[:, 7] / data_t_1[:, 9]
 dlow_hs = data_t[:, 8] / data_t_1[:, 9]
 dclose_hs = data_t[:, 9] / data_t_1[:, 9]
-# dvolume_hs = data_t[:, 11] / data_t_1[:, 11]
+dvolume_hs = data_t[:, 11] / data_t_1[:, 11]
 
-data = np.concatenate([dopen, dhigh, dlow, dclose, dvolume, dopen_hs, dhigh_hs, dlow_hs, dclose_hs],
+data = np.concatenate([dopen, dhigh, dlow, dclose, dvolume, dopen_hs, dhigh_hs, dlow_hs, dclose_hs, dvolume_hs],
                       axis=0) - 1
-data = np.reshape(data, [-1, 9], order='F')
+data = np.reshape(data, [-1, 10], order='F')
 
 data_train = data[:-1 * batch_size - long + 1]
 data_test = data[-1 * batch_size - long + 1:]
@@ -46,39 +46,44 @@ def next(data, bs=batch_size, random=True):
     a, b, c = [], [], []
     for i in r:
         sample = data[i: i + long]
-        a.append(sample[:-1-10, :5])
-        b.append(sample[:-10, 5:9])
+        a.append(sample[:-1, :5])
+        b.append(sample[:, 5:10])
         c.append(sample[-1][1])
     return a, b, c
 
 
-x = tf.placeholder(shape=[batch_size, long -1- 10, 5], dtype=tf.float32)
-y = tf.placeholder(shape=[batch_size, long-10, 4], dtype=tf.float32)
+x = tf.placeholder(shape=[batch_size, long - 1, 5], dtype=tf.float32)
+y = tf.placeholder(shape=[batch_size, long, 5], dtype=tf.float32)
 z_ = tf.placeholder(shape=[batch_size], dtype=tf.float32)
 
 X = tf.nn.sigmoid(x) - 0.5
 Y = tf.nn.sigmoid(y) - 0.5
 
-gru_x = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
-state_x = gru_x.zero_state(batch_size, dtype=tf.float32)
-with tf.variable_scope('RNN_x'):
-    for timestep in range(long - 1-10):
-        if timestep == 1:
-            tf.get_variable_scope().reuse_variables()
-        (cell_output_x, state_x) = gru_x(X[:, timestep], state_x)
-    out_put_x = state_x
-
 gru_y = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
 state_y = gru_y.zero_state(batch_size, dtype=tf.float32)
 with tf.variable_scope('RNN_y'):
-    for timestep in range(long-1-10):#be careful
+    for timestep in range(long):
         if timestep == 1:
             tf.get_variable_scope().reuse_variables()
         (cell_output_y, state_y) = gru_y(Y[:, timestep], state_y)
     out_put_y = state_y
 
-out_put = tf.concat([out_put_x, out_put_y], axis=1)
-# out_put=out_put_x#+out_put_y
+out_put_y1 = tf.expand_dims(out_put_y, 1)
+out_put_y2 = tf.tile(out_put_y1, [1, long - 1, 1])
+
+intput_x1 = tf.concat([X, out_put_y2], axis=2)
+
+gru_x = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
+state_x = gru_x.zero_state(batch_size, dtype=tf.float32)
+with tf.variable_scope('RNN_x'):
+    for timestep in range(long - 1):
+        if timestep == 1:
+            tf.get_variable_scope().reuse_variables()
+        (cell_output_x, state_x) = gru_x(intput_x1[:, timestep], state_x)
+    out_put_x = state_x
+
+# out_put = tf.concat([out_put_x, out_put_y], axis=1)
+out_put = out_put_x  # +out_put_y
 
 lay1 = ml.layer_basic(out_put, 4)
 z = ml.layer_basic(lay1, 1)[:, 0]
