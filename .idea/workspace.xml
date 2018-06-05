@@ -4,12 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/model/rnn_ud.py" line="86" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77d20c2-00cc-44fe-aeb3-e657016c7b1c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/data/bp.csv" afterPath="$PROJECT_DIR$/data/bp.csv" />
-      <change beforePath="$PROJECT_DIR$/data/hs.csv" afterPath="$PROJECT_DIR$/data/hs.csv" />
-      <change beforePath="$PROJECT_DIR$/model/rnn_hs.py" afterPath="$PROJECT_DIR$/model/rnn_hs.py" />
-    </list>
+    <list default="true" id="c77d20c2-00cc-44fe-aeb3-e657016c7b1c" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +26,8 @@
       <file leaf-file-name="rnn_hs.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/model/rnn_hs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="51" column="18" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+            <state relative-caret-position="335">
+              <caret line="90" column="43" lean-forward="true" selection-start-line="90" selection-start-column="43" selection-end-line="90" selection-end-column="43" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -841,8 +836,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/model/rnn_hs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="51" column="18" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+        <state relative-caret-position="335">
+          <caret line="90" column="43" lean-forward="true" selection-start-line="90" selection-start-column="43" selection-end-line="90" selection-end-column="43" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
