@@ -33,7 +33,8 @@ data = np.concatenate([dopen, dhigh, dlow, dclose, dvolume, dopen_hs, dhigh_hs, 
                       axis=0) - 1
 data = np.reshape(data, [-1, 9], order='F')
 
-data_train = data[:-1 * batch_size - long + 1]
+# data_train = data[:-1 * batch_size - long + 1]
+data_train = data[:-1 * long - 7]
 data_test = data[-1 * batch_size - long + 1:]
 
 
@@ -46,14 +47,14 @@ def next(data, bs=batch_size, random=True):
     a, b, c = [], [], []
     for i in r:
         sample = data[i: i + long]
-        a.append(sample[:-1-10, :5])
-        b.append(sample[:-10, 5:9])
-        c.append(sample[-1][1])
+        a.append(sample[:-1, :5])
+        b.append(sample[:, 5:9])
+        c.append(sample[-1][3])
     return a, b, c
 
 
-x = tf.placeholder(shape=[batch_size, long -1- 10, 5], dtype=tf.float32)
-y = tf.placeholder(shape=[batch_size, long-10, 4], dtype=tf.float32)
+x = tf.placeholder(shape=[batch_size, long - 1, 5], dtype=tf.float32)
+y = tf.placeholder(shape=[batch_size, long, 4], dtype=tf.float32)
 z_ = tf.placeholder(shape=[batch_size], dtype=tf.float32)
 
 X = tf.nn.sigmoid(x) - 0.5
@@ -62,7 +63,7 @@ Y = tf.nn.sigmoid(y) - 0.5
 gru_x = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
 state_x = gru_x.zero_state(batch_size, dtype=tf.float32)
 with tf.variable_scope('RNN_x'):
-    for timestep in range(long - 1-10):
+    for timestep in range(long - 1):
         if timestep == 1:
             tf.get_variable_scope().reuse_variables()
         (cell_output_x, state_x) = gru_x(X[:, timestep], state_x)
@@ -71,7 +72,7 @@ with tf.variable_scope('RNN_x'):
 gru_y = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
 state_y = gru_y.zero_state(batch_size, dtype=tf.float32)
 with tf.variable_scope('RNN_y'):
-    for timestep in range(long-1-10):#be careful
+    for timestep in range(long):  # be careful
         if timestep == 1:
             tf.get_variable_scope().reuse_variables()
         (cell_output_y, state_y) = gru_y(Y[:, timestep], state_y)
