@@ -33,7 +33,8 @@ data = np.concatenate([dopen, dhigh, dlow, dclose, dvolume, dopen_hs, dhigh_hs, 
                       axis=0) - 1
 data = np.reshape(data, [-1, 10], order='F')
 
-data_train = data[: - long + -7]
+# data_train = data[:-1 * batch_size - long + 1]
+data_train = data[:-1 * long - 7]
 data_test = data[-1 * batch_size - long + 1:]
 
 
@@ -46,13 +47,13 @@ def next(data, bs=batch_size, random=True):
     a, b, c = [], [], []
     for i in r:
         sample = data[i: i + long]
-        a.append(sample[:-1, :5])
+        a.append(np.concatenate([sample[:-1, :5], [[sample[-1][0]]] * (long - 1)], axis=-1))
         b.append(sample[:-1, 5:10])
-        c.append(sample[-1][2])
+        c.append(sample[-1][3])
     return a, b, c
 
 
-x = tf.placeholder(shape=[batch_size, long - 1, 5], dtype=tf.float32)
+x = tf.placeholder(shape=[batch_size, long - 1, 6], dtype=tf.float32)
 y = tf.placeholder(shape=[batch_size, long - 1, 5], dtype=tf.float32)
 z_ = tf.placeholder(shape=[batch_size], dtype=tf.float32)
 
@@ -81,7 +82,7 @@ out_put = tf.concat([out_put_x, out_put_y], axis=1)
 # out_put=out_put_x#+out_put_y
 
 lay1 = ml.layer_basic(out_put, 4)
-z = ml.layer_basic(lay1, 1)[:, 0]
+z = ml.layer_basic(lay1, 1)[:, 0] + x[:, 0, -1]
 
 loss = tf.reduce_mean((z - z_) ** 2)
 
@@ -96,7 +97,7 @@ print('begin..................................')
 
 for i in range(10 ** 10):
     a, b, c = next(data=data_train)
-    sess.run(optimizer, feed_dict={x: a, y: b, z_: c})
+    sess.run(optimizer_min, feed_dict={x: a, y: b, z_: c})
     if i % 100 == 0:
         a_test, b_test, c_test = next(data=data_test, random=False)
         z_train, z_train_, loss_train = sess.run((z, z_, loss), feed_dict={x: a, y: b, z_: c})

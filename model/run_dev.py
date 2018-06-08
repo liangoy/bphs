@@ -97,7 +97,7 @@ print('begin..................................')
 
 for i in range(10 ** 10):
     a, b, c = next(data=data_train)
-    sess.run(optimizer, feed_dict={x: a, y: b, z_: c})
+    sess.run(optimizer_min, feed_dict={x: a, y: b, z_: c})
     if i % 100 == 0:
         a_test, b_test, c_test = next(data=data_test, random=False)
         z_train, z_train_, loss_train = sess.run((z, z_, loss), feed_dict={x: a, y: b, z_: c})
