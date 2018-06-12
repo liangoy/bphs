@@ -27,7 +27,7 @@ dopen_hs = data_t[:, 6] / data_t_1[:, 9]
 dhigh_hs = data_t[:, 7] / data_t_1[:, 9]
 dlow_hs = data_t[:, 8] / data_t_1[:, 9]
 dclose_hs = data_t[:, 9] / data_t_1[:, 9]
-#dvolume_hs = data_t[:, 11] / data_t_1[:, 11]
+# dvolume_hs = data_t[:, 11] / data_t_1[:, 11]
 
 data = np.concatenate([dopen, dhigh, dlow, dclose, dvolume, dopen_hs, dhigh_hs, dlow_hs, dclose_hs],
                       axis=0) - 1
@@ -79,10 +79,33 @@ with tf.variable_scope('RNN_y'):
     out_put_y = state_y
 
 out_put = tf.concat([out_put_x, out_put_y], axis=1)
+
+# ==========================================================================
+gru_a_x = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
+state_a_x = gru_a_x.zero_state(batch_size, dtype=tf.float32)
+with tf.variable_scope('RNN_a_x'):
+    for timestep in range(long - 1):
+        if timestep == 1:
+            tf.get_variable_scope().reuse_variables()
+        (cell_output_a_x, state_a_x) = gru_a_x(X[:, timestep], state_a_x)
+    out_put_a_x = state_a_x
+
+gru_a_y = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
+state_a_y = gru_a_y.zero_state(batch_size, dtype=tf.float32)
+with tf.variable_scope('RNN_a_y'):
+    for timestep in range(long):  # be careful
+        if timestep == 1:
+            tf.get_variable_scope().reuse_variables()
+        (cell_output_a_y, state_a_y) = gru_a_y(Y[:, timestep], state_a_y)
+    out_put_a_y = state_a_y
+
+out_put_a = tf.concat([out_put_a_x, out_put_a_y], axis=1)
+# =======================================================================================
 # out_put=out_put_x#+out_put_y
 
-lay1 = ml.layer_basic(out_put, 4)
-z = ml.layer_basic(lay1, 1)[:, 0] + x[:, 0, -1]
+lay1 = tf.nn.tanh(ml.layer_basic(out_put, 4))
+z = ml.layer_basic(lay1, 1)[:, 0] + x[:, 0, -1] * tf.nn.sigmoid(
+    ml.layer_basic(tf.nn.tanh(ml.layer_basic(out_put_a, 4)), 1)[:, 0])
 
 loss = tf.reduce_mean((z - z_) ** 2)
 
