@@ -49,7 +49,7 @@ def next(data, bs=batch_size, random=True):
         sample = data[i: i + long]
         a.append(np.concatenate([sample[:-1, :5], [[sample[-1][0]]] * (long - 1)], axis=-1))
         b.append(sample[:, 5:9])
-        c.append(sample[-1][3])
+        c.append(sample[-1][0])
     return a, b, c
 
 

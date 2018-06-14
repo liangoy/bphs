@@ -48,7 +48,7 @@ def next(data, bs=batch_size, random=True):
         sample = data[i: i + long]
         a.append(sample[:-1, :5])
         b.append(sample[:, 5:10])
-        c.append(sample[-1][1])
+        c.append(sample[-1][2])
     return a, b, c
 
 

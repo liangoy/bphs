@@ -10,7 +10,7 @@ batch_size = 512
 data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv')
 data_hs = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv')
 
-data = pd.merge(data_hs, data_bp, on='Date', how='outer')
+data = pd.merge(data_bp, data_hs, on='Date', how='outer')
 data = data.dropna()
 
 data = np.array(data)[:, 1:]
@@ -27,13 +27,14 @@ dopen_hs = data_t[:, 6] / data_t_1[:, 9]
 dhigh_hs = data_t[:, 7] / data_t_1[:, 9]
 dlow_hs = data_t[:, 8] / data_t_1[:, 9]
 dclose_hs = data_t[:, 9] / data_t_1[:, 9]
-dvolume_hs = data_t[:, 11] / data_t_1[:, 11]
+# dvolume_hs = data_t[:, 11] / data_t_1[:, 11]
 
-data = np.concatenate([dopen, dhigh, dlow, dclose, dvolume, dopen_hs, dhigh_hs, dlow_hs, dclose_hs, dvolume_hs],
+data = np.concatenate([dopen, dhigh, dlow, dclose, dvolume, dopen_hs, dhigh_hs, dlow_hs, dclose_hs],
                       axis=0) - 1
-data = np.reshape(data, [-1, 10], order='F')
+data = np.reshape(data, [-1, 9], order='F')
 
-data_train = data[: - long + -7]
+# data_train = data[:-1 * batch_size - long + 1]
+data_train = data[:-1 * long - 7]
 data_test = data[-1 * batch_size - long + 1:]
 
 
@@ -46,14 +47,14 @@ def next(data, bs=batch_size, random=True):
     a, b, c = [], [], []
     for i in r:
         sample = data[i: i + long]
-        a.append(sample[:-1, :5])
-        b.append(sample[:-1, 5:10])
+        a.append(np.concatenate([sample[:-1, :5], [[sample[-1][0]]] * (long - 1)], axis=-1))
+        b.append(sample[:, 5:9])
         c.append(sample[-1][3])
     return a, b, c
 
 
-x = tf.placeholder(shape=[batch_size, long - 1, 5], dtype=tf.float32)
-y = tf.placeholder(shape=[batch_size, long - 1, 5], dtype=tf.float32)
+x = tf.placeholder(shape=[batch_size, long - 1, 6], dtype=tf.float32)
+y = tf.placeholder(shape=[batch_size, long, 4], dtype=tf.float32)
 z_ = tf.placeholder(shape=[batch_size], dtype=tf.float32)
 
 X = tf.nn.sigmoid(x) - 0.5
@@ -71,21 +72,46 @@ with tf.variable_scope('RNN_x'):
 gru_y = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
 state_y = gru_y.zero_state(batch_size, dtype=tf.float32)
 with tf.variable_scope('RNN_y'):
-    for timestep in range(long - 1):  # be careful
+    for timestep in range(long):  # be careful
         if timestep == 1:
             tf.get_variable_scope().reuse_variables()
         (cell_output_y, state_y) = gru_y(Y[:, timestep], state_y)
     out_put_y = state_y
 
 out_put = tf.concat([out_put_x, out_put_y], axis=1)
+
+# ==========================================================================
+gru_a_x = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
+state_a_x = gru_a_x.zero_state(batch_size, dtype=tf.float32)
+with tf.variable_scope('RNN_a_x'):
+    for timestep in range(long - 1):
+        if timestep == 1:
+            tf.get_variable_scope().reuse_variables()
+        (cell_output_a_x, state_a_x) = gru_a_x(X[:, timestep], state_a_x)
+    out_put_a_x = state_a_x
+
+gru_a_y = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
+state_a_y = gru_a_y.zero_state(batch_size, dtype=tf.float32)
+with tf.variable_scope('RNN_a_y'):
+    for timestep in range(long):  # be careful
+        if timestep == 1:
+            tf.get_variable_scope().reuse_variables()
+        (cell_output_a_y, state_a_y) = gru_a_y(Y[:, timestep], state_a_y)
+    out_put_a_y = state_a_y
+
+out_put_a = tf.concat([out_put_a_x, out_put_a_y], axis=1)
+# =======================================================================================
 # out_put=out_put_x#+out_put_y
 
-lay1 = ml.layer_basic(out_put, 4)
-z = ml.layer_basic(lay1, 1)[:, 0]
+lay1 = tf.nn.tanh(ml.layer_basic(out_put, 4))
+z = ml.layer_basic(lay1, 1)[:, 0] + x[:, 0, -1] * tf.nn.sigmoid(
+    ml.layer_basic(tf.nn.tanh(ml.layer_basic(out_put_a, 4)), 1)[:, 0])
 
+loss_corr = -tf.reduce_sum((z - tf.reduce_mean(z)) * (z_ - tf.reduce_mean(z_))) / (
+        tf.reduce_sum((z - tf.reduce_mean(z)) ** 2) * tf.reduce_sum((z_ - tf.reduce_mean(z_)) ** 2)) ** 0.5
 loss = tf.reduce_mean((z - z_) ** 2)
 
-optimizer = tf.train.AdamOptimizer(learning_rate=0.001).minimize(loss)
+optimizer = tf.train.AdamOptimizer(learning_rate=0.001).minimize(loss_corr)
 optimizer_min = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(loss)
 
 # ...................................................................
