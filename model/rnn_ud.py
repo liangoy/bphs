@@ -11,7 +11,7 @@ data_bp = pd.read_csv('/home/liangoy/Desktop/project/bphs/data/bp.csv')
 data_hs = pd.read_csv('/home/liangoy/Desktop/project/bphs/data/hs.csv')
 
 data = pd.merge(data_bp, data_hs, on='Date', how='outer')
-data = data.fillna(method='ffilll')
+data = data.fillna(method='ffill')
 
 for i in data.columns[1:]:
     std = data[i].std()
