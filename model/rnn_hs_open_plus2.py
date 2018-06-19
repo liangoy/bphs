@@ -11,7 +11,7 @@ data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv')
 data_hs = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv')
 
 data = pd.merge(data_hs, data_bp, on='Date', how='outer')
-data = data.dropna()
+data = data.fillna(method='ffilll')
 
 data = np.array(data)[:, 1:]
 data = np.array(data, dtype=np.float32)
@@ -119,7 +119,7 @@ print('begin..................................')
 
 for i in range(10 ** 10):
     a, b, c = next(data=data_train)
-    sess.run(optimizer_min, feed_dict={x: a, y: b, z_: c})
+    sess.run(optimizer, feed_dict={x: a, y: b, z_: c})
     if i % 100 == 0:
         a_test, b_test, c_test = next(data=data_test, random=False)
         z_train, z_train_, loss_train = sess.run((z, z_, loss), feed_dict={x: a, y: b, z_: c})

@@ -11,7 +11,7 @@ data_dz = pd.read_csv('/usr/local/oybb/project/bphs/data/dz.csv')
 data_hs = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv')
 
 data = pd.merge(data_dz, data_hs, on='Date', how='outer')
-data = data.dropna()
+data = data.fillna(method='ffilll')
 
 data = np.array(data)[:, 1:]
 data = np.array(data, dtype=np.float32)
