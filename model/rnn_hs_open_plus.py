@@ -10,10 +10,10 @@ batch_size = 512
 data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv')
 data_hs = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv')
 
-data = pd.merge(data_hs, data_bp, on='Date', how='outer')
+data = pd.merge(data_hs, data_bp, on='Date', how='outer').sort_values(by='Date')
 data = data.fillna(method='ffill')
 
-data = np.array(data)[:, 1:]
+data = np.array(data)[1:, 1:]
 data = np.array(data, dtype=np.float32)
 data_t = data[1:]
 data_t_1 = data[:-1] + 0.0000001

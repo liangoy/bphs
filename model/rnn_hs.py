@@ -10,10 +10,10 @@ batch_size = 512
 data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv')
 data_hs = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv')
 
-data = pd.merge(data_hs, data_bp, on='Date', how='outer')
+data = pd.merge(data_hs, data_bp, on='Date', how='left').sort_values(by='Date')
 data = data.fillna(method='ffill')
 
-data = np.array(data)[:, 1:]
+data = np.array(data)[1:, 1:]
 data = np.array(data, dtype=np.float32)
 data_t = data[1:]
 data_t_1 = data[:-1] + 0.0000001
@@ -48,7 +48,7 @@ def next(data, bs=batch_size, random=True):
         sample = data[i: i + long]
         a.append(sample[:-1, :5])
         b.append(sample[:-1, 5:10])
-        c.append(sample[-1][3])
+        c.append(sample[-1][2])
     return a, b, c
 
 
@@ -78,7 +78,6 @@ with tf.variable_scope('RNN_y'):
     out_put_y = state_y
 
 out_put = tf.concat([out_put_x, out_put_y], axis=1)
-# out_put=out_put_x#+out_put_y
 
 lay1 = ml.layer_basic(out_put, 4)
 z = ml.layer_basic(lay1, 1)[:, 0]
@@ -103,4 +102,4 @@ for i in range(10 ** 10):
         z_test, z_test_, loss_test = sess.run((z, z_, loss), feed_dict={x: a_test, y: b_test, z_: c_test})
         q_train = np.mean(np.abs(z_train - z_train_))
         q_test = np.mean(np.abs(z_test - z_test_))
-        print(loss_train, loss_test, q_train, q_test)
+        print(loss_train, loss_test, q_train, q_test,np.corrcoef(z_test,z_test_)[0,1])

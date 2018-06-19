@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c77d20c2-00cc-44fe-aeb3-e657016c7b1c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/bp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/bp.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/dz.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/hs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/hs.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/rnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/rnn.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/rnn_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/rnn_4.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/rnn_44.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/rnn_44.py" afterDir="false" />
@@ -38,65 +35,24 @@
     <SUITE FILE_PATH="coverage/bphs$rnn_bp_open_plus2.coverage" NAME="rnn_bp_open_plus2 Coverage Results" MODIFIED="1528792205423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/bphs$rnn_bp_open_plus_corr.coverage" NAME="rnn_bp_open_plus_corr Coverage Results" MODIFIED="1529372554485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/bphs$rnn_div.coverage" NAME="rnn_div Coverage Results" MODIFIED="1528093034491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
+    <SUITE FILE_PATH="coverage/bphs$rnn_bp.coverage" NAME="rnn_bp Coverage Results" MODIFIED="1529398662387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/bphs$rnn_hs_open_plus.coverage" NAME="rnn_hs_open_plus Coverage Results" MODIFIED="1528426323870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/bphs$rnn.coverage" NAME="rnn Coverage Results" MODIFIED="1527841316848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/bphs$run_bp_open_plus.coverage" NAME="run_bp_open_plus Coverage Results" MODIFIED="1528443397516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
-    <SUITE FILE_PATH="coverage/bphs$rnn_hs_open_plus2.coverage" NAME="rnn_hs_open_plus2 Coverage Results" MODIFIED="1528940009272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
-    <SUITE FILE_PATH="coverage/bphs$rnn_hs.coverage" NAME="rnn_hs Coverage Results" MODIFIED="1528125119787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
+    <SUITE FILE_PATH="coverage/bphs$rnn_hs_open_plus2.coverage" NAME="rnn_hs_open_plus2 Coverage Results" MODIFIED="1529377018662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/bphs$run_dev.coverage" NAME="run_dev Coverage Results" MODIFIED="1528185283946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
+    <SUITE FILE_PATH="coverage/bphs$rnn_hs.coverage" NAME="rnn_hs Coverage Results" MODIFIED="1529390083143" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="bp.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/bp.csv">
+      <file leaf-file-name="rnn_bp.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/model/rnn_bp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="590">
-              <caret line="4278" lean-forward="true" selection-start-line="4278" selection-end-line="4278" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rnn_bp_open_plus2.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/model/rnn_bp_open_plus2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="71" column="62" selection-start-line="71" selection-start-column="62" selection-end-line="71" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hs.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/hs.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="590">
-              <caret line="4249" column="19" selection-start-line="4249" selection-start-column="19" selection-end-line="4249" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rnn_hs_open_plus2.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/rnn_hs_open_plus2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rnn_div.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/rnn_div.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rnn_bp_open_plus_corr.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/rnn_bp_open_plus_corr.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="122" column="25" lean-forward="true" selection-start-line="122" selection-start-column="25" selection-end-line="122" selection-end-column="25" />
+            <state relative-caret-position="198">
+              <caret line="93" column="42" lean-forward="true" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,6 +78,10 @@
       <find>_x</find>
       <find>_y</find>
       <find>data.dropna()</find>
+      <find>ffilll</find>
+      <find>how='outer')</find>
+      <find>data = pd.merge(data_bp, data_hs, on='Date', how='outer')</find>
+      <find>data = np.array(data)[:, 1:]</find>
     </findStrings>
     <replaceStrings>
       <replace>z</replace>
@@ -130,6 +90,10 @@
       <replace>_a_x</replace>
       <replace>_a_y</replace>
       <replace>data.fillna(method='ffilll')</replace>
+      <replace>ffill</replace>
+      <replace>how='outer').sort_values(by='Date')</replace>
+      <replace>data = pd.merge(data_hs, data_bp, on='Date', how='outer').sort_values(by='Date')</replace>
+      <replace>data = np.array(data)[1:, 1:]</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -142,9 +106,7 @@
         <option value="$PROJECT_DIR$/model/rnn1.py" />
         <option value="$PROJECT_DIR$/model/rnn_ud.py" />
         <option value="$PROJECT_DIR$/model/rnn.py" />
-        <option value="$PROJECT_DIR$/model/rnn_4.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/model/rnn_44.py" />
         <option value="$PROJECT_DIR$/model/run_dz.py" />
         <option value="$PROJECT_DIR$/model/rnn_hs_open_plus.py" />
         <option value="$PROJECT_DIR$/model/run_bp_open_plus.py" />
@@ -152,12 +114,14 @@
         <option value="$PROJECT_DIR$/model/rnn_bp_open_plus_corr.py" />
         <option value="$PROJECT_DIR$/model/run_dev.py" />
         <option value="$PROJECT_DIR$/model/rnn_div.py" />
-        <option value="$PROJECT_DIR$/model/rnn_hs.py" />
         <option value="$PROJECT_DIR$/model/rnn_bp_open_plus2.py" />
-        <option value="$PROJECT_DIR$/model/rnn_bp.py" />
         <option value="$PROJECT_DIR$/data/bp.csv" />
-        <option value="$PROJECT_DIR$/model/rnn_hs_open_plus2.py" />
         <option value="$PROJECT_DIR$/data/hs.csv" />
+        <option value="$PROJECT_DIR$/model/rnn_44.py" />
+        <option value="$PROJECT_DIR$/model/rnn_4.py" />
+        <option value="$PROJECT_DIR$/model/rnn_hs.py" />
+        <option value="$PROJECT_DIR$/model/rnn_hs_open_plus2.py" />
+        <option value="$PROJECT_DIR$/model/rnn_bp.py" />
       </list>
     </option>
   </component>
@@ -234,7 +198,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.rnn_bp_open_plus_corr">
+  <component name="RunManager" selected="Python.rnn_bp">
+    <configuration name="rnn_bp" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bphs" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/model" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model/rnn_bp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="rnn_bp_open_plus2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bphs" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -273,7 +256,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="rnn_hs_open_plus" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="rnn_hs" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bphs" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -286,7 +269,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model/rnn_hs_open_plus.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model/rnn_hs.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -306,25 +289,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model/rnn_hs_open_plus2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="run_bp_open_plus" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="bphs" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/model" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model/run_bp_open_plus.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -500,19 +464,19 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <list>
-      <item itemvalue="Python.rnn_hs_open_plus" />
-      <item itemvalue="Python.run_bp_open_plus" />
       <item itemvalue="Python.rnn_bp_open_plus2" />
       <item itemvalue="Python.rnn_hs_open_plus2" />
       <item itemvalue="Python.rnn_bp_open_plus_corr" />
+      <item itemvalue="Python.rnn_hs" />
+      <item itemvalue="Python.rnn_bp" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.rnn_bp_open_plus_corr" />
+        <item itemvalue="Python.rnn_bp" />
         <item itemvalue="Python.rnn_hs_open_plus2" />
+        <item itemvalue="Python.rnn_hs" />
+        <item itemvalue="Python.rnn_bp_open_plus_corr" />
         <item itemvalue="Python.rnn_bp_open_plus2" />
-        <item itemvalue="Python.run_bp_open_plus" />
-        <item itemvalue="Python.rnn_hs_open_plus" />
       </list>
     </recent_temporary>
   </component>
@@ -539,9 +503,9 @@
       <window_info anchor="bottom" id="File Transfer" order="12" weight="0.21976866" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37223974" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4164038" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20729685" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14538419" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -558,32 +522,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
-    <layout-to-restore>
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.37245697" />
-      <window_info anchor="right" id="Remote Host" order="4" weight="0.329429" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="File Transfer" order="12" weight="0.32707354" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" x="0" y="0" width="275" height="572" id="Documentation" order="5" side_tool="true" weight="0.32988048" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2940239" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -600,7 +538,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -813,24 +751,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/rnn_44.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="6" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.1/system/remote_sources/-739603640/-1845054326/tensorflow/python/framework/common_shapes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="685" selection-start-line="685" selection-end-line="685" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/rnn_4.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="45" column="6" lean-forward="true" selection-end-line="89" />
         </state>
       </provider>
     </entry>
@@ -842,13 +766,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/dz.csv" />
-    <entry file="file://$PROJECT_DIR$/model/rnn_hs_open_plus.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/run_dz.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1485">
@@ -857,30 +774,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/run_dev.py" />
-    <entry file="file://$PROJECT_DIR$/model/rnn_hs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/rnn_bp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/rnn_bp_open_plus_corr.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="122" column="25" lean-forward="true" selection-start-line="122" selection-start-column="25" selection-end-line="122" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/rnn_div.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -888,31 +781,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/bp.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4720">
+          <caret line="4275" column="12" selection-start-line="4275" selection-start-column="12" selection-end-line="4275" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/rnn_4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="12" column="53" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/hs.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="4249" column="19" selection-start-line="4249" selection-start-column="19" selection-end-line="4249" selection-end-column="19" />
+        <state relative-caret-position="445">
+          <caret line="4250" lean-forward="true" selection-start-line="4250" selection-end-line="4250" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/rnn_bp_open_plus_corr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1770">
+          <caret line="122" column="25" lean-forward="true" selection-start-line="122" selection-start-column="25" selection-end-line="122" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/rnn_hs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/rnn_hs_open_plus2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+        <state relative-caret-position="60">
+          <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/bp.csv">
+    <entry file="file://$PROJECT_DIR$/model/rnn_hs_open_plus.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="4278" lean-forward="true" selection-start-line="4278" selection-end-line="4278" />
+        <state relative-caret-position="1245">
+          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/rnn_44.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/rnn_bp_open_plus2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="71" column="62" selection-start-line="71" selection-start-column="62" selection-end-line="71" selection-end-column="62" />
+        <state relative-caret-position="15">
+          <caret line="67" column="53" lean-forward="true" selection-start-line="67" selection-start-column="53" selection-end-line="67" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/rnn_bp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="93" column="42" lean-forward="true" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

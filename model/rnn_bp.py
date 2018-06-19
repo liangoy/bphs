@@ -10,10 +10,10 @@ batch_size = 512
 data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv')
 data_hs = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv')
 
-data = pd.merge(data_bp, data_hs, on='Date', how='outer')
+data = pd.merge(data_bp, data_hs, on='Date', how='left').sort_values(by='Date')
 data = data.fillna(method='ffill')
 
-data = np.array(data)[:, 1:]
+data = np.array(data)[1:, 1:]
 data = np.array(data, dtype=np.float32)
 data_t = data[1:]
 data_t_1 = data[:-1] + 0.0000001
@@ -49,7 +49,7 @@ def next(data, bs=batch_size, random=True):
         sample = data[i: i + long]
         a.append(sample[:-1, :5])
         b.append(sample[:, 5:9])
-        c.append(sample[-1][3])
+        c.append(sample[-1][1])
     return a, b, c
 
 
@@ -78,10 +78,10 @@ with tf.variable_scope('RNN_y'):
         (cell_output_y, state_y) = gru_y(Y[:, timestep], state_y)
     out_put_y = state_y
 
-out_put = tf.concat([out_put_x, out_put_y], axis=1)
-# out_put=out_put_x#+out_put_y
+#out_put = tf.concat([out_put_x, out_put_y], axis=1)
+out_put=out_put_x
 
-lay1 = ml.layer_basic(out_put, 4)
+lay1 = tf.nn.tanh(ml.layer_basic(out_put, 4))
 z = ml.layer_basic(lay1, 1)[:, 0]
 
 loss = tf.reduce_mean((z - z_) ** 2)
@@ -97,11 +97,11 @@ print('begin..................................')
 
 for i in range(10 ** 10):
     a, b, c = next(data=data_train)
-    sess.run(optimizer_min, feed_dict={x: a, y: b, z_: c})
+    sess.run(optimizer, feed_dict={x: a, y: b, z_: c})
     if i % 100 == 0:
         a_test, b_test, c_test = next(data=data_test, random=False)
         z_train, z_train_, loss_train = sess.run((z, z_, loss), feed_dict={x: a, y: b, z_: c})
         z_test, z_test_, loss_test = sess.run((z, z_, loss), feed_dict={x: a_test, y: b_test, z_: c_test})
         q_train = np.mean(np.abs(z_train - z_train_))
         q_test = np.mean(np.abs(z_test - z_test_))
-        print(loss_train, loss_test, q_train, q_test)
+        print(loss_train, loss_test, q_train, q_test,np.corrcoef(z_test,z_test_)[0,1])
