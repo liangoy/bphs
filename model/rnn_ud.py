@@ -7,8 +7,8 @@ from tensorflow.contrib.rnn import GRUCell
 long = 7
 batch_size = 256
 
-data_bp = pd.read_csv('/home/liangoy/Desktop/project/bphs/data/bp.csv')
-data_hs = pd.read_csv('/home/liangoy/Desktop/project/bphs/data/hs.csv')
+data_bp = pd.read_csv('/home/liangoy/Desktop/project/bphs/data/bp.csv').dropna()
+data_hs = pd.read_csv('/home/liangoy/Desktop/project/bphs/data/hs.csv').dropna()
 
 data = pd.merge(data_bp, data_hs, on='Date', how='outer').sort_values(by='Date')
 data = data.fillna(method='ffill')

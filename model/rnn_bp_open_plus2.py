@@ -7,10 +7,10 @@ from tensorflow.contrib.rnn import GRUCell
 long = 30
 batch_size = 512
 
-data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv')
-data_hs = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv')
+data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv').dropna()
+data_hs = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv').dropna()
 
-data = pd.merge(data_bp, data_hs, on='Date', how='outer').sort_values(by='Date')
+data = pd.merge(data_bp, data_hs, on='Date', how='left').sort_values(by='Date')
 data = data.fillna(method='ffill')
 
 data = np.array(data)[1:, 1:]
@@ -49,7 +49,7 @@ def next(data, bs=batch_size, random=True):
         sample = data[i: i + long]
         a.append(np.concatenate([sample[:-1, :5], [[sample[-1][0]]] * (long - 1)], axis=-1))
         b.append(sample[:, 5:9])
-        c.append(sample[-1][3])
+        c.append(sample[-1][1])
     return a, b, c
 
 

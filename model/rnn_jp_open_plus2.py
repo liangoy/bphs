@@ -8,9 +8,9 @@ long = 30
 batch_size = 512
 
 data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv').dropna()
-data_hs = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv').dropna()
+data_jp = pd.read_csv('/usr/local/oybb/project/bphs/data/jp.csv').dropna()
 
-data = pd.merge(data_hs, data_bp, on='Date', how='left').sort_values(by='Date')
+data = pd.merge(data_jp, data_bp, on='Date', how='left').sort_values(by='Date')
 data = data.fillna(method='ffill')
 
 data = np.array(data)[1:, 1:]
