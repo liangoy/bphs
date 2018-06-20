@@ -6,11 +6,12 @@ from tensorflow.contrib.rnn import GRUCell
 
 long = 30
 batch_size = 512
+otype=1
 
 data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv').dropna()
-data_jp = pd.read_csv('/usr/local/oybb/project/bphs/data/jp.csv').dropna()
+data_hk = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv').dropna()
 
-data = pd.merge(data_jp, data_bp, on='Date', how='left').sort_values(by='Date')
+data = pd.merge(data_hk, data_bp, on='Date', how='left').sort_values(by='Date')
 data = data.fillna(method='ffill')
 
 data = np.array(data)[1:, 1:]
@@ -49,7 +50,7 @@ def next(data, bs=batch_size, random=True):
         sample = data[i: i + long]
         a.append(np.concatenate([sample[:-1, :5], [[sample[-1][0]]] * (long - 1)], axis=-1))
         b.append(sample[:-1, 5:10])
-        c.append(sample[-1][3])
+        c.append(sample[-1][otype])
     return a, b, c
 
 
@@ -113,17 +114,12 @@ optimizer_min = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(loss)
 
 # ...................................................................
 sess = tf.Session()
-sess.run(tf.global_variables_initializer())
+saver=tf.train.Saver()
+saver.restore(sess,'/usr/local/oybb/project/bphs_model/jp/jp_with_open'+str(otype))
 
 print('begin..................................')
 
-for i in range(10 ** 10):
-    a, b, c = next(data=data_train)
-    sess.run(optimizer, feed_dict={x: a, y: b, z_: c})
-    if i % 100 == 0:
-        a_test, b_test, c_test = next(data=data_test, random=False)
-        z_train, z_train_, loss_train = sess.run((z, z_, loss), feed_dict={x: a, y: b, z_: c})
-        z_test, z_test_, loss_test = sess.run((z, z_, loss), feed_dict={x: a_test, y: b_test, z_: c_test})
-        q_train = np.mean(np.abs(z_train - z_train_))
-        q_test = np.mean(np.abs(z_test - z_test_))
-        print(loss_train, loss_test, q_train, q_test,np.corrcoef(z_test,z_test_)[0][1])
+a_test, b_test, c_test = next(data=data_test, random=False)
+z_test, z_test_, loss_test = sess.run((z, z_, loss), feed_dict={x: a_test, y: b_test, z_: c_test})
+q_test = np.mean(np.abs(z_test - z_test_))
+print(np.corrcoef(z_test,z_test_))

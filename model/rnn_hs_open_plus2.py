@@ -49,7 +49,7 @@ def next(data, bs=batch_size, random=True):
         sample = data[i: i + long]
         a.append(np.concatenate([sample[:-1, :5], [[sample[-1][0]]] * (long - 1)], axis=-1))
         b.append(sample[:-1, 5:10])
-        c.append(sample[-1][1])
+        c.append(sample[-1][3])
     return a, b, c
 
 
@@ -119,7 +119,7 @@ print('begin..................................')
 
 for i in range(10 ** 10):
     a, b, c = next(data=data_train)
-    sess.run(optimizer, feed_dict={x: a, y: b, z_: c})
+    sess.run(optimizer_min, feed_dict={x: a, y: b, z_: c})
     if i % 100 == 0:
         a_test, b_test, c_test = next(data=data_test, random=False)
         z_train, z_train_, loss_train = sess.run((z, z_, loss), feed_dict={x: a, y: b, z_: c})

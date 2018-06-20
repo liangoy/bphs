@@ -49,7 +49,7 @@ def next(data, bs=batch_size, random=True):
         sample = data[i: i + long]
         a.append(np.concatenate([sample[:-1, :5], [[sample[-1][0]]] * (long - 1)], axis=-1))
         b.append(sample[:, 5:9])
-        c.append(sample[-1][1])
+        c.append(sample[-1][3])
     return a, b, c
 
 
@@ -127,4 +127,4 @@ for i in range(10 ** 10):
         z_test, z_test_, loss_test = sess.run((z, z_, loss), feed_dict={x: a_test, y: b_test, z_: c_test})
         q_train = np.mean(np.abs(z_train - z_train_))
         q_test = np.mean(np.abs(z_test - z_test_))
-        print(loss_train, loss_test, q_train, q_test)
+        print(loss_train, loss_test, q_train, q_test,np.corrcoef(z_test,z_test_)[0,1])
