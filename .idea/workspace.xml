@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c77d20c2-00cc-44fe-aeb3-e657016c7b1c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/model/random_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ax.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/ax.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/bp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/bp.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/hs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/hs.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/jp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/jp.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/uk.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/uk.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/rnn_bp_open_plus.py" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rnn_bp_open_plus.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/rnn_hs_open_plus.py" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rnn_hs_open_plus.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gen/rnn_jp_open_plus.py" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rnn_jp_open_plus.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/ml.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/ml.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -65,26 +57,26 @@
       <file leaf-file-name="rnn_hs_open_plus.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gen/rnn_hs_open_plus.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="125" column="66" selection-start-line="125" selection-start-column="66" selection-end-line="125" selection-end-column="66" />
+            <state relative-caret-position="445">
+              <caret line="126" lean-forward="true" selection-start-line="126" selection-end-line="126" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rnn_jp_open_plus.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rnn_jp_open_plus.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gen/rnn_jp_open_plus.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="125" column="66" lean-forward="true" selection-start-line="125" selection-start-column="66" selection-end-line="125" selection-end-column="66" />
+            <state relative-caret-position="135">
+              <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bp.csv" pinned="false" current-in-tab="false">
+      <file leaf-file-name="bp.csv" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/bp.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="4272" column="57" selection-start-line="4272" selection-start-column="57" selection-end-line="4272" selection-end-column="57" />
+            <state relative-caret-position="440">
+              <caret line="4280" column="81" lean-forward="true" selection-start-line="4280" selection-start-column="81" selection-end-line="4280" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -92,8 +84,8 @@
       <file leaf-file-name="rnn_bp_open_plus.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gen/rnn_bp_open_plus.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="128" selection-start-line="128" selection-end-line="132" selection-end-column="66" />
+            <state relative-caret-position="60">
+              <caret line="8" column="7" selection-end-line="133" />
             </state>
           </provider>
         </entry>
@@ -174,12 +166,12 @@
         <option value="$PROJECT_DIR$/model/rnn_hs_open_plus2.py" />
         <option value="$PROJECT_DIR$/data/hs.csv" />
         <option value="$PROJECT_DIR$/model/rnn_bp_open_plus3.py" />
-        <option value="$PROJECT_DIR$/data/bp.csv" />
         <option value="$PROJECT_DIR$/model/random_test.py" />
         <option value="$PROJECT_DIR$/util/ml.py" />
-        <option value="$PROJECT_DIR$/gen/rnn_bp_open_plus.py" />
-        <option value="$PROJECT_DIR$/gen/rnn_hs_open_plus.py" />
         <option value="$PROJECT_DIR$/gen/rnn_jp_open_plus.py" />
+        <option value="$PROJECT_DIR$/gen/rnn_hs_open_plus.py" />
+        <option value="$PROJECT_DIR$/data/bp.csv" />
+        <option value="$PROJECT_DIR$/gen/rnn_bp_open_plus.py" />
       </list>
     </option>
   </component>
@@ -203,7 +195,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -240,6 +231,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -573,12 +565,12 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="File Transfer" order="12" weight="0.37749738" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.41535226" />
+      <window_info anchor="bottom" id="File Transfer" order="12" visible="true" weight="0.37749738" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.41535226" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26036483" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2631288" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="6" side_tool="true" weight="0.32946378" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -912,31 +904,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/bp.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="4272" column="57" selection-start-line="4272" selection-start-column="57" selection-end-line="4272" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gen/rnn_bp_open_plus.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="128" selection-start-line="128" selection-end-line="132" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gen/rnn_hs_open_plus.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="125" column="66" selection-start-line="125" selection-start-column="66" selection-end-line="125" selection-end-column="66" />
+        <state relative-caret-position="445">
+          <caret line="126" lean-forward="true" selection-start-line="126" selection-end-line="126" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gen/rnn_jp_open_plus.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="125" column="66" lean-forward="true" selection-start-line="125" selection-start-column="66" selection-end-line="125" selection-end-column="66" />
+        <state relative-caret-position="135">
+          <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gen/rnn_bp_open_plus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="7" selection-end-line="133" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/bp.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="4280" column="81" lean-forward="true" selection-start-line="4280" selection-start-column="81" selection-end-line="4280" selection-end-column="81" />
         </state>
       </provider>
     </entry>
