@@ -1,6 +1,8 @@
 import tensorflow as tf
 import pymongo
 import jieba
+from scipy.optimize import leastsq
+import numpy as np
 
 
 def bn(x):
@@ -42,6 +44,14 @@ def conv2d(input, conv_filter, stride=[1, 1, 1, 1], padding='SAME', ksize=None, 
     b = tf.Variable(tf.random_uniform([conv_filter[-1]], -1.0, 1.0))
     conv2d_out = tf.nn.elu(tf.nn.conv2d(input, w, strides=stride, padding=padding) + b)
     return tf.nn.max_pool(conv2d_out, ksize=ksize, strides=pool_stride, padding=pool_padding)
+
+def res_modify(x,y,x_to_modify):
+    func=lambda p,x:p[0]*x+p[1]
+    error=lambda p,x,y:func(p,x)-y
+    par=leastsq(error,(0,0),args=(x,y))[0]
+    x_to_modify=np.array(x_to_modify)
+    print(par)
+    return x_to_modify*par[0]+par[1]
 
 
 oo = list(pymongo.MongoClient().xingqiao.dataWithMsg.find())
