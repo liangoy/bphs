@@ -131,3 +131,4 @@ z_test, z_test_, loss_test = sess.run((z, z_, loss), feed_dict={x: a_test, y: b_
 q_test = np.mean(np.abs(z_test - z_test_))
 z_test=z_test-ml.res_modify(z_test,z_test-z_test_,z_test)
 print(np.corrcoef(z_test,z_test_)[0,1],abs(z_test-z_test_).mean())
+print(z_test[-1])

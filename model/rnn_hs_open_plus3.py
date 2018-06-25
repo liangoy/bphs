@@ -11,7 +11,7 @@ data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv').dropna()
 data_hs = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv').dropna()
 data_jp = pd.read_csv('/usr/local/oybb/project/bphs/data/jp.csv').dropna()
 
-data = pd.merge(data_bp, data_hs, on='Date', how='left')
+data = pd.merge(data_hs, data_bp, on='Date', how='left')
 data = pd.merge(data, data_jp, on='Date', how='left').sort_values(by='Date')
 data = data.fillna(method='ffill')
 
@@ -29,15 +29,16 @@ dopen_hs = data_t[:, 6] / data_t_1[:, 9]
 dhigh_hs = data_t[:, 7] / data_t_1[:, 9]
 dlow_hs = data_t[:, 8] / data_t_1[:, 9]
 dclose_hs = data_t[:, 9] / data_t_1[:, 9]
-# dvolume_hs = data_t[:, 11] / data_t_1[:, 11]
+dvolume_hs = data_t[:, 11] / data_t_1[:, 11]
 dopen_jp = data_t[:, 12] / data_t_1[:, 15]
 dhigh_jp = data_t[:, 13] / data_t_1[:, 15]
 dlow_jp = data_t[:, 14] / data_t_1[:, 15]
 dclose_jp = data_t[:, 15] / data_t_1[:, 15]
+dvolume_jp = data_t[:, 17] / data_t_1[:, 17]
 
-data = np.concatenate([dopen, dhigh, dlow, dclose, dvolume, dopen_hs, dhigh_hs, dlow_hs, dclose_hs,dopen_jp,dhigh_jp,dlow_jp,dclose_jp],
+data = np.concatenate([dopen, dhigh, dlow, dclose, dvolume, dopen_hs, dhigh_hs, dlow_hs, dclose_hs, dvolume_hs,dopen_jp,dhigh_jp,dlow_jp,dclose_jp,dvolume_jp],
                       axis=0) - 1
-data = np.reshape(data, [-1, 13], order='F')
+data = np.reshape(data, [-1, 15], order='F')
 
 # data_train = data[:-1 * batch_size - long + 1]
 data_train = data[:-1 * long - 7]
@@ -54,13 +55,13 @@ def next(data, bs=batch_size, random=True):
     for i in r:
         sample = data[i: i + long]
         a.append(np.concatenate([sample[:-1, :5], [[sample[-1][0]]] * (long - 1)], axis=-1))
-        b.append(sample[:, 5:13])
-        c.append(sample[-1][3])
+        b.append(sample[:-1, 5:15])
+        c.append(sample[-1][1])
     return a, b, c
 
 
 x = tf.placeholder(shape=[batch_size, long - 1, 6], dtype=tf.float32)
-y = tf.placeholder(shape=[batch_size, long, 8], dtype=tf.float32)
+y = tf.placeholder(shape=[batch_size, long - 1, 10], dtype=tf.float32)
 z_ = tf.placeholder(shape=[batch_size], dtype=tf.float32)
 
 X = tf.nn.sigmoid(x) - 0.5
@@ -78,7 +79,7 @@ with tf.variable_scope('RNN_x'):
 gru_y = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
 state_y = gru_y.zero_state(batch_size, dtype=tf.float32)
 with tf.variable_scope('RNN_y'):
-    for timestep in range(long):  # be careful
+    for timestep in range(long - 1):  # be careful
         if timestep == 1:
             tf.get_variable_scope().reuse_variables()
         (cell_output_y, state_y) = gru_y(Y[:, timestep], state_y)
@@ -86,7 +87,7 @@ with tf.variable_scope('RNN_y'):
 
 out_put = tf.concat([out_put_x, out_put_y], axis=1)
 
-# ==========================================================================
+#================================================================
 gru_a_x = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
 state_a_x = gru_a_x.zero_state(batch_size, dtype=tf.float32)
 with tf.variable_scope('RNN_a_x'):
@@ -99,15 +100,14 @@ with tf.variable_scope('RNN_a_x'):
 gru_a_y = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
 state_a_y = gru_a_y.zero_state(batch_size, dtype=tf.float32)
 with tf.variable_scope('RNN_a_y'):
-    for timestep in range(long):  # be careful
+    for timestep in range(long - 1):  # be careful
         if timestep == 1:
             tf.get_variable_scope().reuse_variables()
         (cell_output_a_y, state_a_y) = gru_a_y(Y[:, timestep], state_a_y)
     out_put_a_y = state_a_y
 
 out_put_a = tf.concat([out_put_a_x, out_put_a_y], axis=1)
-# =======================================================================================
-# out_put=out_put_x#+out_put_y
+#======================================================================================
 
 lay1 = tf.nn.tanh(ml.layer_basic(out_put, 4))
 z = ml.layer_basic(lay1, 1)[:, 0] + x[:, 0, -1] * tf.nn.sigmoid(
@@ -133,4 +133,4 @@ for i in range(10 ** 10):
         z_test, z_test_, loss_test = sess.run((z, z_, loss), feed_dict={x: a_test, y: b_test, z_: c_test})
         q_train = np.mean(np.abs(z_train - z_train_))
         q_test = np.mean(np.abs(z_test - z_test_))
-        print(loss_train, loss_test, q_train, q_test, np.corrcoef(z_test, z_test_)[0, 1])
+        print(loss_train, loss_test, q_train, q_test,np.corrcoef(z_test,z_test_)[0][1])
