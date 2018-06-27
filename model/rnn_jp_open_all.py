@@ -6,7 +6,7 @@ from tensorflow.contrib.rnn import GRUCell
 
 long = 30
 batch_size = 512
-otype=3
+otype=1
 
 data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv').dropna()
 data_jp = pd.read_csv('/usr/local/oybb/project/bphs/data/jp.csv').dropna()
@@ -58,65 +58,43 @@ x = tf.placeholder(shape=[batch_size, long - 1, 6], dtype=tf.float32)
 y = tf.placeholder(shape=[batch_size, long - 1, 5], dtype=tf.float32)
 z_ = tf.placeholder(shape=[batch_size], dtype=tf.float32)
 
-X = tf.nn.sigmoid(x) - 0.5
-Y = tf.nn.sigmoid(y) - 0.5
+xy=tf.concat([x,y],axis=-1)
+XY=tf.nn.tanh(xy)
 
-gru_x = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
-state_x = gru_x.zero_state(batch_size, dtype=tf.float32)
-with tf.variable_scope('RNN_x'):
+
+gru = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
+state = gru.zero_state(batch_size, dtype=tf.float32)
+with tf.variable_scope('RNN'):
     for timestep in range(long - 1):
         if timestep == 1:
             tf.get_variable_scope().reuse_variables()
-        (cell_output_x, state_x) = gru_x(X[:, timestep], state_x)
-    out_put_x = state_x
-
-gru_y = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
-state_y = gru_y.zero_state(batch_size, dtype=tf.float32)
-with tf.variable_scope('RNN_y'):
-    for timestep in range(long - 1):  # be careful
-        if timestep == 1:
-            tf.get_variable_scope().reuse_variables()
-        (cell_output_y, state_y) = gru_y(Y[:, timestep], state_y)
-    out_put_y = state_y
-
-out_put = tf.concat([out_put_x, out_put_y], axis=1)
+        (cell_output, state) = gru(XY[:, timestep], state)
+    out_put = state
 
 #================================================================
-gru_a_x = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
-state_a_x = gru_a_x.zero_state(batch_size, dtype=tf.float32)
-with tf.variable_scope('RNN_a_x'):
+gru_a = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
+state_a = gru.zero_state(batch_size, dtype=tf.float32)
+with tf.variable_scope('RNN_a'):
     for timestep in range(long - 1):
         if timestep == 1:
             tf.get_variable_scope().reuse_variables()
-        (cell_output_a_x, state_a_x) = gru_a_x(X[:, timestep], state_a_x)
-    out_put_a_x = state_a_x
+        (cell_output, state_a) = gru_a(XY[:, timestep], state_a)
+    out_put_a = state_a
 
-gru_a_y = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
-state_a_y = gru_a_y.zero_state(batch_size, dtype=tf.float32)
-with tf.variable_scope('RNN_a_y'):
-    for timestep in range(long - 1):  # be careful
-        if timestep == 1:
-            tf.get_variable_scope().reuse_variables()
-        (cell_output_a_y, state_a_y) = gru_a_y(Y[:, timestep], state_a_y)
-    out_put_a_y = state_a_y
-
-out_put_a = tf.concat([out_put_a_x, out_put_a_y], axis=1)
-#======================================================================================
+#================================================================
 
 lay1 = tf.nn.tanh(ml.layer_basic(out_put, 4))
-z = ml.layer_basic(lay1, 1)[:, 0] + x[:, 0, -1] * tf.nn.sigmoid(
-    ml.layer_basic(tf.nn.tanh(ml.layer_basic(out_put_a, 4)), 1)[:, 0])
+z = ml.layer_basic(lay1, 1)[:, 0]
 
 loss = tf.reduce_mean((z - z_) ** 2)
 
-optimizer = tf.train.AdamOptimizer(learning_rate=0.001).minimize(loss)
+optimizer = tf.train.AdamOptimizer(learning_rate=0.01).minimize(loss)
 optimizer_min = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(loss)
 
 # ...................................................................
 sess = tf.Session()
-#sess.run(tf.global_variables_initializer())
-saver=tf.train.Saver()
-saver.restore(sess,'/usr/local/oybb/project/bphs_model/jp/jp_with_open'+str(otype))
+sess.run(tf.global_variables_initializer())
+
 
 print('begin..................................')
 

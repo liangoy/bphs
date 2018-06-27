@@ -10,10 +10,10 @@ otype=1
 
 data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv').dropna()
 data_hs = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv').dropna()
-data_jp = pd.read_csv('/usr/local/oybb/project/bphs/data/jp.csv').dropna()
+data_a50 = pd.read_csv('/usr/local/oybb/project/bphs/data/a50.csv').dropna()
 
 data = pd.merge(data_hs, data_bp, on='Date', how='left')
-data = pd.merge(data, data_jp, on='Date', how='left').sort_values(by='Date')
+data = pd.merge(data, data_a50, on='Date', how='left').sort_values(by='Date')
 data = data.fillna(method='ffill')
 
 data = np.array(data)[1:, 1:]
@@ -31,15 +31,15 @@ dhigh_hs = data_t[:, 7] / data_t_1[:, 9]
 dlow_hs = data_t[:, 8] / data_t_1[:, 9]
 dclose_hs = data_t[:, 9] / data_t_1[:, 9]
 dvolume_hs = data_t[:, 11] / data_t_1[:, 11]
-dopen_jp = data_t[:, 12] / data_t_1[:, 15]
-dhigh_jp = data_t[:, 13] / data_t_1[:, 15]
-dlow_jp = data_t[:, 14] / data_t_1[:, 15]
-dclose_jp = data_t[:, 15] / data_t_1[:, 15]
-dvolume_jp = data_t[:, 17] / data_t_1[:, 17]
+dopen_a50 = data_t[:, 12] / data_t_1[:, 15]
+dhigh_a50 = data_t[:, 13] / data_t_1[:, 15]
+dlow_a50 = data_t[:, 14] / data_t_1[:, 15]
+dclose_a50 = data_t[:, 15] / data_t_1[:, 15]
+#dvolume_a50 = data_t[:, 17] / data_t_1[:, 17]
 
-data = np.concatenate([dopen, dhigh, dlow, dclose, dvolume, dopen_hs, dhigh_hs, dlow_hs, dclose_hs, dvolume_hs,dopen_jp,dhigh_jp,dlow_jp,dclose_jp,dvolume_jp],
+data = np.concatenate([dopen, dhigh, dlow, dclose, dvolume, dopen_hs, dhigh_hs, dlow_hs, dclose_hs, dvolume_hs,dopen_a50,dhigh_a50,dlow_a50,dclose_a50],
                       axis=0) - 1
-data = np.reshape(data, [-1, 15], order='F')
+data = np.reshape(data, [-1, 14], order='F')
 
 # data_train = data[:-1 * batch_size - long + 1]
 data_train = data[:-1 * long - 7]
@@ -56,13 +56,13 @@ def next(data, bs=batch_size, random=True):
     for i in r:
         sample = data[i: i + long]
         a.append(np.concatenate([sample[:-1, :5], [[sample[-1][0]]] * (long - 1)], axis=-1))
-        b.append(sample[:-1, 5:15])
+        b.append(sample[:-1, 5:14])
         c.append(sample[-1][otype])
     return a, b, c
 
 
 x = tf.placeholder(shape=[batch_size, long - 1, 6], dtype=tf.float32)
-y = tf.placeholder(shape=[batch_size, long - 1, 10], dtype=tf.float32)
+y = tf.placeholder(shape=[batch_size, long - 1, 9], dtype=tf.float32)
 z_ = tf.placeholder(shape=[batch_size], dtype=tf.float32)
 
 X = tf.nn.sigmoid(x) - 0.5
@@ -121,9 +121,9 @@ optimizer_min = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(loss)
 
 # ...................................................................
 sess = tf.Session()
-# sess.run(tf.global_variables_initializer())
-saver=tf.train.Saver()
-saver.restore(sess,'/usr/local/oybb/project/bphs_model/hk/hs_with_open'+str(otype))
+sess.run(tf.global_variables_initializer())
+# saver=tf.train.Saver()
+# saver.restore(sess,'/usr/local/oybb/project/bphs_model/hk/hs_with_open'+str(otype))
 
 print('begin..................................')
 

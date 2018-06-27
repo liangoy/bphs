@@ -10,16 +10,17 @@ headers={'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/
  'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/66.0.3359.181 Chrome/66.0.3359.181 Safari/537.36'}
 
 def gen_url(url):
-    url_f='https://query1.finance.yahoo.com/v7/finance/download/%5'
+    url_f='https://query1.finance.yahoo.com/v7/finance/download/'
     url_b='?period1=992966400&period2=2529424000&interval=1d&events=history&crumb=p.1hS.qBaMS'
     return url_f+url+url_b
 
 urls={
-    'jp':gen_url('EN225'),
-    'bp':gen_url('EGSPC'),
-    'hs':gen_url('EHSI'),
-    'uk':gen_url('EFTSE'),
-    'ax':gen_url('EAXJO')
+    'jp':gen_url('%5EN225'),
+    'bp':gen_url('%5EGSPC'),
+    'hs':gen_url('%5EHSI'),
+    'uk':gen_url('%5EFTSE'),
+    'ax':gen_url('%5EAXJO'),
+    #'a50':gen_url('000001.SS')
 }
 
 for i in urls:

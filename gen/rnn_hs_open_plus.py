@@ -6,7 +6,7 @@ from tensorflow.contrib.rnn import GRUCell
 
 long = 30
 batch_size = 512
-otype=3
+otype=1
 
 data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv').dropna()
 data_hk = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv').dropna()
@@ -115,7 +115,7 @@ optimizer_min = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(loss)
 # ...................................................................
 sess = tf.Session()
 saver=tf.train.Saver()
-saver.restore(sess,'/usr/local/oybb/project/bphs_model/jp/jp_with_open'+str(otype))
+saver.restore(sess,'/usr/local/oybb/project/bphs_model/hk/hs_with_open'+str(otype))
 
 print('begin..................................')
 
