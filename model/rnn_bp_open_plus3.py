@@ -6,6 +6,7 @@ from tensorflow.contrib.rnn import GRUCell
 
 long = 30
 batch_size = 512
+otype=1
 
 data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv').dropna()
 data_hs = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv').dropna()
@@ -55,7 +56,7 @@ def next(data, bs=batch_size, random=True):
         sample = data[i: i + long]
         a.append(np.concatenate([sample[:-1, :5], [[sample[-1][0]]] * (long - 1)], axis=-1))
         b.append(sample[:, 5:13])
-        c.append(sample[-1][3])
+        c.append(sample[-1][otype])
     return a, b, c
 
 
@@ -120,7 +121,9 @@ optimizer_min = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(loss)
 
 # ...................................................................
 sess = tf.Session()
-sess.run(tf.global_variables_initializer())
+# sess.run(tf.global_variables_initializer())
+saver=tf.train.Saver()
+saver.restore(sess,'/usr/local/oybb/project/bphs_model/us/bp_with_open'+str(otype))
 
 print('begin..................................')
 
