@@ -6,7 +6,6 @@ from tensorflow.contrib.rnn import GRUCell
 
 long = 30
 batch_size = 512
-otype=1
 
 data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv').dropna()
 data_jp = pd.read_csv('/usr/local/oybb/project/bphs/data/jp.csv').dropna()
@@ -50,17 +49,16 @@ def next(data, bs=batch_size, random=True):
         sample = data[i: i + long]
         a.append(np.concatenate([sample[:-1, :5], [[sample[-1][0]]] * (long - 1)], axis=-1))
         b.append(sample[:-1, 5:10])
-        c.append(sample[-1][otype])
+        c.append(sample[-1][1:4])
     return a, b, c
 
 
 x = tf.placeholder(shape=[batch_size, long - 1, 6], dtype=tf.float32)
 y = tf.placeholder(shape=[batch_size, long - 1, 5], dtype=tf.float32)
-z_ = tf.placeholder(shape=[batch_size], dtype=tf.float32)
+z_ = tf.placeholder(shape=[batch_size, 3], dtype=tf.float32)
 
-xy=tf.concat([x,y],axis=-1)
-XY=tf.nn.tanh(xy)
-
+xy = tf.concat([x, y], axis=-1)
+XY = tf.nn.tanh(xy)
 
 gru = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
 state = gru.zero_state(batch_size, dtype=tf.float32)
@@ -71,9 +69,9 @@ with tf.variable_scope('RNN'):
         (cell_output, state) = gru(XY[:, timestep], state)
     out_put = state
 
-#================================================================
+# ================================================================
 gru_a = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
-state_a = gru.zero_state(batch_size, dtype=tf.float32)
+state_a = gru_a.zero_state(batch_size, dtype=tf.float32)
 with tf.variable_scope('RNN_a'):
     for timestep in range(long - 1):
         if timestep == 1:
@@ -81,10 +79,11 @@ with tf.variable_scope('RNN_a'):
         (cell_output, state_a) = gru_a(XY[:, timestep], state_a)
     out_put_a = state_a
 
-#================================================================
+# ================================================================
 
-lay1 = tf.nn.tanh(ml.layer_basic(out_put, 4))
-z = ml.layer_basic(lay1, 1)[:, 0]
+lay1 = tf.nn.tanh(ml.layer_basic(out_put, 16))
+lay2 = tf.nn.tanh(ml.layer_basic(lay1, 8))
+z = ml.layer_basic(lay2, 3)
 
 loss = tf.reduce_mean((z - z_) ** 2)
 
@@ -94,7 +93,6 @@ optimizer_min = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(loss)
 # ...................................................................
 sess = tf.Session()
 sess.run(tf.global_variables_initializer())
-
 
 print('begin..................................')
 
@@ -107,4 +105,7 @@ for i in range(10 ** 10):
         z_test, z_test_, loss_test = sess.run((z, z_, loss), feed_dict={x: a_test, y: b_test, z_: c_test})
         q_train = np.mean(np.abs(z_train - z_train_))
         q_test = np.mean(np.abs(z_test - z_test_))
-        print(loss_train, loss_test, q_train, q_test,np.corrcoef(z_test,z_test_)[0][1])
+        corr1 = np.corrcoef(z_test[:, 0], z_test_[:, 0])[0, 1]
+        corr2 = np.corrcoef(z_test[:, 1], z_test_[:, 1])[0, 1]
+        corr3 = np.corrcoef(z_test[:, 2], z_test_[:, 2])[0, 1]
+        print(loss_train, loss_test, q_train, q_test, corr1, corr2, corr3)

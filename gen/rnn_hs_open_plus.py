@@ -6,7 +6,7 @@ from tensorflow.contrib.rnn import GRUCell
 
 long = 30
 batch_size = 512
-otype=1
+otype=3
 
 data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv').dropna()
 data_hk = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv').dropna()

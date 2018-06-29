@@ -20,7 +20,7 @@ urls={
     'hs':gen_url('%5EHSI'),
     'uk':gen_url('%5EFTSE'),
     'ax':gen_url('%5EAXJO'),
-    #'a50':gen_url('000001.SS')
+    'vix':gen_url('%5EVIX')
 }
 
 for i in urls:
