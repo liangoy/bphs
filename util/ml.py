@@ -54,8 +54,8 @@ def res_modify(x,y,x_to_modify):
     return x_to_modify*par[0]+par[1]
 
 
-oo = list(pymongo.MongoClient().xingqiao.dataWithMsg.find())
-w2i = {i['word']: i['index'] for i in pymongo.MongoClient().xingqiao.w2iGt5000.find()}
+# oo = list(pymongo.MongoClient().xingqiao.dataWithMsg.find())
+# w2i = {i['word']: i['index'] for i in pymongo.MongoClient().xingqiao.w2iGt5000.find()}
 
 
 # def test(text):
