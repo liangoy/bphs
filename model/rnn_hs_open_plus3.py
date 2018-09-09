@@ -1,3 +1,6 @@
+import sys
+sys.path.append('')
+import config
 import pandas as pd
 import numpy as np
 import tensorflow as tf
@@ -5,12 +8,12 @@ from util import ml
 from tensorflow.contrib.rnn import GRUCell
 
 long = 30
-batch_size = 512
+batch_size = 2048
 otype=1
 
-data_bp = pd.read_csv('/usr/local/oybb/project/bphs/data/bp.csv').dropna()
-data_hs = pd.read_csv('/usr/local/oybb/project/bphs/data/hs.csv').dropna()
-data_a50 = pd.read_csv('/usr/local/oybb/project/bphs/data/a50.csv').dropna()
+data_bp = pd.read_csv(config.ROOT_PATH+'/data/bp.csv').dropna()
+data_hs = pd.read_csv(config.ROOT_PATH+'/data/hs.csv').dropna()
+data_a50 = pd.read_csv(config.ROOT_PATH+'/data/a50.csv').dropna()
 
 data = pd.merge(data_hs, data_bp, on='Date', how='left')
 data = pd.merge(data, data_a50, on='Date', how='left').sort_values(by='Date')
@@ -120,7 +123,9 @@ optimizer = tf.train.AdamOptimizer(learning_rate=0.001).minimize(loss)
 optimizer_min = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(loss)
 
 # ...................................................................
-sess = tf.Session()
+sess = tf.Session(config=tf.ConfigProto(
+#inter_op_parallelism_threads=0,
+intra_op_parallelism_threads=12,))
 sess.run(tf.global_variables_initializer())
 # saver=tf.train.Saver()
 # saver.restore(sess,'/usr/local/oybb/project/bphs_model/hk/hs_with_open'+str(otype))
