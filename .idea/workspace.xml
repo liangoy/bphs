@@ -1,26 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/train/train_old/rnn_ud.py" line="86" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="c77d20c2-00cc-44fe-aeb3-e657016c7b1c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/model/spy500_high_open/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/train/spy500_high_open.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ax.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/ax.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/bp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/bp.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/hs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/hs.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/jp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/jp.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/uk.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/uk.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/vix.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/vix.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/rnn_bp_open_plus.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/rnn_hs_open_plus.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/rnn_jp_open_plus.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/dowload_data_from_yahoo.py" beforeDir="false" afterPath="$PROJECT_DIR$/tool/dowload_data_from_yahoo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/spy500_rnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/spy500_rnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/spy500_high_open.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/spy500_high_open.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +39,7 @@
     <SUITE FILE_PATH="coverage/bphs$rnn_jp_open_plus2.coverage" NAME="rnn_jp_open_plus2 Coverage Results" MODIFIED="1529483780196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/bphs$rnn_hs_open_plus.coverage" NAME="rnn_hs_open_plus Coverage Results" MODIFIED="1530239882853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/gen" />
     <SUITE FILE_PATH="coverage/bphs$run_dev.coverage" NAME="run_dev Coverage Results" MODIFIED="1528185283946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
-    <SUITE FILE_PATH="coverage/bphs$spy500_high_open.coverage" NAME="spy500_high_open Coverage Results" MODIFIED="1540223174102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
+    <SUITE FILE_PATH="coverage/bphs$spy500_high_open.coverage" NAME="spy500_high_open Coverage Results" MODIFIED="1540317065455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
     <SUITE FILE_PATH="coverage/bphs$run_dz.coverage" NAME="run_dz Coverage Results" MODIFIED="1528181965421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
   </component>
   <component name="DatabaseView">
@@ -100,13 +83,13 @@
         <counts>
           <entry key="csv" value="4" />
           <entry key="dummy" value="16" />
-          <entry key="py" value="1332" />
+          <entry key="py" value="1465" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="20" />
-          <entry key="Python" value="1332" />
+          <entry key="Python" value="1465" />
         </counts>
       </usages-collector>
     </session>
@@ -116,8 +99,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train/spy500_high_open.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-165">
-              <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+            <state relative-caret-position="376">
+              <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -460,8 +443,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2962963" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2111664" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -830,8 +814,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train/spy500_high_open.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-165">
-          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+        <state relative-caret-position="376">
+          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
