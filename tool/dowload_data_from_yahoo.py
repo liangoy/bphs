@@ -1,4 +1,5 @@
 import requests
+from config import ROOT_PATH
 
 
 headers={'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -27,6 +28,6 @@ for i in urls:
     r=requests.get(urls[i],headers=headers)
     r.close()
     data=r.text
-    with open('/home/liangoy/Desktop/project/bphs/data/'+i+'.csv','w') as f:
+    with open('/home/liangoy/project/bphs/data/'+i+'.csv','w') as f:
         f.write(data)
         print(i)

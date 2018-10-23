@@ -7,30 +7,34 @@ from sklearn.utils import shuffle
 from config import ROOT_PATH
 
 data_bp = pd.read_csv(ROOT_PATH + '/data/bp.csv').dropna()
-data_bp = data_bp.drop('Adj Close', axis=1)
+data_bp = data_bp.drop(['Adj Close', 'Volume'], axis=1)
 data_hs = pd.read_csv(ROOT_PATH + '/data/hs.csv').dropna()
-data_hs = data_hs.drop('Adj Close', axis=1)
+data_hs = data_hs.drop(['Adj Close', 'Volume'], axis=1)
 data_jp = pd.read_csv(ROOT_PATH + '/data/jp.csv').dropna()
-data_jp = data_jp.drop('Adj Close', axis=1)
+data_jp = data_jp.drop(['Adj Close', 'Volume'], axis=1)
+data_vix = pd.read_csv(ROOT_PATH + '/data/vix.csv').dropna()
+data_vix = data_vix.drop(['Adj Close', 'Volume'], axis=1)
 
-long = 30
-batch_size = 512
+long = 20
+batch_size = 1024
 otype = 0
 
 data = pd.merge(data_bp, data_hs, on='Date', how='left')
-data = pd.merge(data, data_jp, on='Date', how='left').sort_values(by='Date')
+data = pd.merge(data, data_jp, on='Date', how='left')
+data = pd.merge(data, data_vix, on='Date', how='left').sort_values(by='Date')
 data = data.drop('Date', axis=1)
-data=data.iloc[300:].replace(0,None)
+data = data.iloc[300:].replace(0, None)
 data = data.fillna(method='ffill')
 
-data = np.array(data)[1:, 1:]
+data = np.array(data)[1:]
 data = np.array(data, dtype=np.float32)
 data_t = data[1:]
 data_t_1 = data[:-1] + 0.0000001
 
-data = data_t/data_t_1 -1
-
-# data=shuffle(data)#!!!!!!!!!!!!!!!!!
+'''['Open_x', 'High_x', 'Low_x', 'Close_x', 'Open_y', 'High_y', 'Low_y','Close_y', 'Open_x', 'High_x', 'Low_x', 'Close_x', 'Open_y', 'High_y','Low_y', 'Close_y']'''
+for i in range(15):
+    data_t[:, i] /= data_t_1[:, i // 4 * 4 + 3]
+data = data_t - 1
 
 shape = [batch_size, long, len(data[0])]
 
@@ -47,13 +51,12 @@ def next(data, bs=batch_size, random=True):
     for i in r:
         sample = data[i: i + long + 1]
         a.append(sample[:-1, :])
-        b.append(sample[-1,otype])
+        b.append(sample[-1, otype])
     return a, b
 
 
 x = tf.placeholder(shape=shape, dtype=tf.float32)
 y_ = tf.placeholder(shape=[batch_size], dtype=tf.float32)
-
 
 gru = GRUCell(num_units=16, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
 state = gru.zero_state(batch_size, dtype=tf.float32)
@@ -80,6 +83,7 @@ for i in range(10 ** 10):
     if i % 100 == 0:
         test_x, test_y = next(data=data_test)
         loss_train = sess.run(loss, feed_dict={x: train_x, y_: train_y})
-        loss_train = sess.run(loss, feed_dict={x: train_x, y_: train_y})
         y_test, y_test_, loss_test = sess.run((y, y_, loss), feed_dict={x: test_x, y_: test_y})
-        print(loss_train,loss_test,np.mean(np.abs(y_test-y_test_))*100, np.corrcoef(y_test, y_test_)[0, 1])
+        print(loss_train, loss_test, np.mean(np.abs(y_test - y_test_))*100,
+              np.mean(np.abs(y_test - y_test_)) / np.mean(np.abs(y_test_)),
+              np.corrcoef(y_test, y_test_)[0, 1])
