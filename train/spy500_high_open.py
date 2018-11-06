@@ -37,7 +37,7 @@ for i in range(15):
 data = data_t - 1
 
 shape = [batch_size, long, len(data[0])]
-
+ss
 data_train = data[:-512]  # ???
 data_test = data[-512:]
 
@@ -64,17 +64,14 @@ x2 = tf.placeholder(shape=[batch_size], dtype=tf.float32)
 y_ = tf.placeholder(shape=[batch_size], dtype=tf.float32)
 training = tf.placeholder(dtype=tf.bool)
 
+X=tf.layers.batch_normalization(x1,training=True,scale=False,center=False,axis=[0,-1])
 gru = GRUCell(num_units=32, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
 state = gru.zero_state(batch_size, dtype=tf.float32)
 with tf.variable_scope('RNN'):
     for timestep in range(long):
         if timestep == 1:
             tf.get_variable_scope().reuse_variables()
-        if timestep == 0:
-            (cell_output, state) = gru(tf.layers.batch_normalization( x1[:, timestep ],axis=0,training=True,trainable=False ), state)
-        else:
-            (cell_output, state) = gru(
-                tf.layers.batch_normalization(x1[:, timestep], axis=0, training=True, trainable=False,reuse=True), state)
+        (cell_output, state) = gru( X[:, timestep ], state)
     out_put = state
 
 out = tf.nn.relu(out_put)

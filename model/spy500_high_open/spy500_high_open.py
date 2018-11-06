@@ -48,6 +48,7 @@ def next(data, bs=batch_size, test=False):
     else:
         data=np.array(data).tolist()
         data.append(data[-1])
+        data.append(data[-1])
         data=np.array(data)
         r=range(len(data) - (long + 1)-bs, len(data) - (long + 1))
     a1, a2, b = [], [], []
