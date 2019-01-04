@@ -15,7 +15,7 @@ data = pd.merge(data_jp, data_bp, on='Date', how='left').sort_values(by='Date')
 data = data.fillna(method='ffill')
 
 data = np.array(data)[1:, 1:]
-data = np.array(data, dtype=np.float32)
+data = np.array(data, dtype=np.float16)
 data_t = data[1:]
 data_t_1 = data[:-1] + 0.0000001
 
@@ -53,8 +53,8 @@ def next(data, bs=batch_size, random=True):
     return a, b
 
 
-x = tf.placeholder(shape=[batch_size, long - 1, 11], dtype=tf.float32)
-y_ = tf.placeholder(shape=[batch_size], dtype=tf.float32)
+x = tf.placeholder(shape=[batch_size, long - 1, 11], dtype=tf.float16)
+y_ = tf.placeholder(shape=[batch_size], dtype=tf.float16)
 
 X = tf.reshape(tf.nn.tanh(x), [batch_size, long - 1, x.shape[-1], 1])
 

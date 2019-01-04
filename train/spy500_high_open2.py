@@ -62,6 +62,8 @@ def next(data, bs=batch_size, test=False):
     return a1,a2,b
 
 
+dataSet=tf.data.Dataset.from
+
 x1 = tf.placeholder(shape=shape, dtype=tf.float16)
 x2 = tf.placeholder(shape=[batch_size], dtype=tf.float16)
 y_ = tf.placeholder(shape=[batch_size], dtype=tf.float16)

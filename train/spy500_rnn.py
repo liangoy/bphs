@@ -24,7 +24,7 @@ data=data.iloc[300:].replace(0,None)
 data = data.fillna(method='ffill')
 
 data = np.array(data)[1:, 1:]
-data = np.array(data, dtype=np.float32)
+data = np.array(data, dtype=np.float16)
 data_t = data[1:]
 data_t_1 = data[:-1] + 0.0000001
 
@@ -51,12 +51,12 @@ def next(data, bs=batch_size, random=True):
     return a, b
 
 
-x = tf.placeholder(shape=shape, dtype=tf.float32)
-y_ = tf.placeholder(shape=[batch_size], dtype=tf.float32)
+x = tf.placeholder(shape=shape, dtype=tf.float16)
+y_ = tf.placeholder(shape=[batch_size], dtype=tf.float16)
 
 
 gru = GRUCell(num_units=16, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
-state = gru.zero_state(batch_size, dtype=tf.float32)
+state = gru.zero_state(batch_size, dtype=tf.float16)
 with tf.variable_scope('RNN'):
     for timestep in range(long):
         if timestep == 1:

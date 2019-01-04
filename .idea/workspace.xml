@@ -2,9 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c77d20c2-00cc-44fe-aeb3-e657016c7b1c" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/train/spy500_high_open2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/train/spy500_high_open_gragh.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/train/test1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/train/test2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ax.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/ax.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/bp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/bp.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/hs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/hs.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/jp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/jp.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/uk.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/uk.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/vix.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/vix.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/spy500_high_open/spy500_high_open.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/spy500_high_open/spy500_high_open.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/bn_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/bn_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/hs_by_spy500_vix_hs.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/hs_by_spy500_vix_hs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/spy500_by_hs_jp_vix.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/spy500_by_hs_jp_vix.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train/spy500_high_open.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/spy500_high_open.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/spy500_rnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/spy500_rnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/cnn_jp_open_plus2.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/cnn_jp_open_plus2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/random_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/random_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_44.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_44.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_ax.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_ax.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_ax_open_plus2.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_ax_open_plus2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_bp.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_bp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_bp_open_plus2.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_bp_open_plus2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_bp_open_plus3.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_bp_open_plus3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_bp_open_plus_corr.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_bp_open_plus_corr.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_div.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_div.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_hs.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_hs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_hs_open_plus.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_hs_open_plus.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_hs_open_plus2.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_hs_open_plus2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_hs_open_plus3.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_hs_open_plus3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_jp.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_jp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_jp_open_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_jp_open_all.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_jp_open_plus2.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_jp_open_plus2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_ud.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_ud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_uk.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_uk.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_uk_open_plus2.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_uk_open_plus2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/rnn_ukax_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/rnn_ukax_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/run_bp_open_plus.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/run_bp_open_plus.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train_old/run_dz.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_old/run_dz.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/vix_by_bp_hs_jp.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/vix_by_bp_hs_jp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/ml.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/ml.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,9 +60,10 @@
     <SUITE FILE_PATH="coverage/bphs$rnn_bp_open_plus_corr.coverage" NAME="rnn_bp_open_plus_corr Coverage Results" MODIFIED="1529372554485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/bphs$spy500_rnn.coverage" NAME="spy500_rnn Coverage Results" MODIFIED="1539609080802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
     <SUITE FILE_PATH="coverage/bphs$random_test.coverage" NAME="random_test Coverage Results" MODIFIED="1529576422591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
-    <SUITE FILE_PATH="coverage/bphs$dowload_data_from_yahoo.coverage" NAME="dowload_data_from_yahoo Coverage Results" MODIFIED="1540212947539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tool" />
+    <SUITE FILE_PATH="coverage/bphs$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1543563736413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
+    <SUITE FILE_PATH="coverage/bphs$dowload_data_from_yahoo.coverage" NAME="dowload_data_from_yahoo Coverage Results" MODIFIED="1542301258309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tool" />
     <SUITE FILE_PATH="coverage/bphs$rnn_ud.coverage" NAME="rnn_ud Coverage Results" MODIFIED="1527839396351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
-    <SUITE FILE_PATH="coverage/bphs$hs_by_spy500_vix_hs.coverage" NAME="hs_by_spy500_vix_hs Coverage Results" MODIFIED="1539618270909" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
+    <SUITE FILE_PATH="coverage/bphs$hs_by_spy500_vix_hs.coverage" NAME="hs_by_spy500_vix_hs Coverage Results" MODIFIED="1543244684510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
     <SUITE FILE_PATH="coverage/bphs$rnn_bp_open_plus2.coverage" NAME="rnn_bp_open_plus2 Coverage Results" MODIFIED="1528792205423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/bphs$rnn_div.coverage" NAME="rnn_div Coverage Results" MODIFIED="1528093034491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/bphs$rnn.coverage" NAME="rnn Coverage Results" MODIFIED="1527841316848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
@@ -35,12 +77,15 @@
     <SUITE FILE_PATH="coverage/bphs$run_bp_open_plus.coverage" NAME="run_bp_open_plus Coverage Results" MODIFIED="1528443397516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/bphs$rnn_44.coverage" NAME="rnn_44 Coverage Results" MODIFIED="1528049221237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/bphs$rnn_4.coverage" NAME="rnn_4 Coverage Results" MODIFIED="1528011640675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
+    <SUITE FILE_PATH="coverage/bphs$bn_test.coverage" NAME="bn_test Coverage Results" MODIFIED="1543397516858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
     <SUITE FILE_PATH="coverage/bphs$rnn_hs_open_plus3.coverage" NAME="rnn_hs_open_plus3 Coverage Results" MODIFIED="1530067739448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/bphs$rnn_bp.coverage" NAME="rnn_bp Coverage Results" MODIFIED="1529398662387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
+    <SUITE FILE_PATH="coverage/bphs$test1.coverage" NAME="test1 Coverage Results" MODIFIED="1543563708337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
     <SUITE FILE_PATH="coverage/bphs$rnn_jp_open_plus2.coverage" NAME="rnn_jp_open_plus2 Coverage Results" MODIFIED="1529483780196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/bphs$rnn_hs_open_plus.coverage" NAME="rnn_hs_open_plus Coverage Results" MODIFIED="1530239882853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/gen" />
     <SUITE FILE_PATH="coverage/bphs$run_dev.coverage" NAME="run_dev Coverage Results" MODIFIED="1528185283946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
-    <SUITE FILE_PATH="coverage/bphs$spy500_high_open.coverage" NAME="spy500_high_open Coverage Results" MODIFIED="1540481388873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
+    <SUITE FILE_PATH="coverage/bphs$spy500_high_open.coverage" NAME="spy500_high_open Coverage Results" MODIFIED="1543167524630" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
+    <SUITE FILE_PATH="coverage/bphs$spy500_high_open_gragh.coverage" NAME="spy500_high_open_gragh Coverage Results" MODIFIED="1542595175950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
     <SUITE FILE_PATH="coverage/bphs$run_dz.coverage" NAME="run_dz Coverage Results" MODIFIED="1528181965421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
   </component>
   <component name="DatabaseView">
@@ -61,37 +106,37 @@
     <session id="470292461">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="3" />
+          <entry key="project.open.time.3" value="13" />
+          <entry key="project.open.time.4" value="6" />
           <entry key="project.open.time.5" value="2" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="csv" value="9" />
-          <entry key="py" value="29" />
+          <entry key="csv" value="10" />
+          <entry key="py" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="9" />
-          <entry key="Python" value="29" />
+          <entry key="PLAIN_TEXT" value="10" />
+          <entry key="Python" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="csv" value="4" />
+          <entry key="csv" value="7" />
           <entry key="dummy" value="16" />
-          <entry key="py" value="1558" />
+          <entry key="py" value="4347" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="20" />
-          <entry key="Python" value="1558" />
+          <entry key="PLAIN_TEXT" value="23" />
+          <entry key="Python" value="4347" />
         </counts>
       </usages-collector>
     </session>
@@ -101,10 +146,31 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train/spy500_high_open.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="39" column="2" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
+            <state relative-caret-position="876">
+              <caret line="103" column="11" selection-start-line="103" selection-start-column="11" selection-end-line="103" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/train/test1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/train/test2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -140,6 +206,17 @@
       <find>_x</find>
       <find>bn</find>
       <find>batch</find>
+      <find>gdef</find>
+      <find>gpu_options</find>
+      <find>graph=</find>
+      <find>float64</find>
+      <find>half2</find>
+      <find>half</find>
+      <find>tf.float64</find>
+      <find>tf.float32</find>
+      <find>tf.float16</find>
+      <find>float16</find>
+      <find>float32</find>
     </findStrings>
     <replaceStrings>
       <replace>z</replace>
@@ -156,6 +233,14 @@
       <replace>test</replace>
       <replace>ROOT_PATH+'</replace>
       <replace>train</replace>
+      <replace>float64</replace>
+      <replace>half2</replace>
+      <replace>half</replace>
+      <replace>tf.float64</replace>
+      <replace>tf.float16</replace>
+      <replace>tf.float32</replace>
+      <replace>float32</replace>
+      <replace>float16</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -164,7 +249,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/model/rnn1.py" />
         <option value="$PROJECT_DIR$/model/rnn_ud.py" />
         <option value="$PROJECT_DIR$/model/rnn.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -191,7 +275,6 @@
         <option value="$PROJECT_DIR$/model/rnn_hs_open_plus3.py" />
         <option value="$PROJECT_DIR$/model/rnn_jp_open_plus2.py" />
         <option value="$PROJECT_DIR$/model/rnn_jp_open_all.py" />
-        <option value="$PROJECT_DIR$/util/ml.py" />
         <option value="$PROJECT_DIR$/model/cnn_jp_open_plus2.py" />
         <option value="$PROJECT_DIR$/data/jp.csv" />
         <option value="$PROJECT_DIR$/gen/rnn_jp_open_plus.py" />
@@ -207,9 +290,16 @@
         <option value="$PROJECT_DIR$/train/vix_by_bp_hs_jp.py" />
         <option value="$PROJECT_DIR$/train/hs_by_spy500_vix_hs.py" />
         <option value="$PROJECT_DIR$/tool/dowload_data_from_yahoo.py" />
-        <option value="$PROJECT_DIR$/data/bp.csv" />
         <option value="$PROJECT_DIR$/model/spy500_high_open/spy500_high_open.py" />
+        <option value="$PROJECT_DIR$/data/bp.csv" />
+        <option value="$PROJECT_DIR$/util/ml.py" />
+        <option value="$PROJECT_DIR$/train/spy500_high_open_gragh.py" />
         <option value="$PROJECT_DIR$/train/spy500_high_open.py" />
+        <option value="$PROJECT_DIR$/train/bn_test.py" />
+        <option value="$PROJECT_DIR$/train/spy500_igh_open.py" />
+        <option value="$PROJECT_DIR$/train/spy500_high_open2.py" />
+        <option value="$PROJECT_DIR$/train/test2.py" />
+        <option value="$PROJECT_DIR$/train/test1.py" />
       </list>
     </option>
   </component>
@@ -220,10 +310,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="200" />
-    <option name="y" value="50" />
-    <option name="width" value="959" />
-    <option name="height" value="744" />
+    <option name="x" value="389" />
+    <option name="y" value="-1" />
+    <option name="width" value="1289" />
+    <option name="height" value="596" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -264,6 +354,11 @@
               <item name="bphs" type="462c0819:PsiDirectoryNode" />
               <item name="train" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="bphs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bphs" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -277,7 +372,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../auto_registered" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../stock" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="web.server" />
@@ -302,8 +397,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.spy500_high_open">
-    <configuration name="dowload_data_from_yahoo" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.test2">
+    <configuration name="bn_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bphs" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -311,12 +406,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tool" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/train" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tool/dowload_data_from_yahoo.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train/bn_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -347,28 +442,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="spy500_by_hs_jp_vix" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="bphs" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/train" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train/spy500_by_hs_jp_vix.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="spy500_high_open" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bphs" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -391,7 +464,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="spy500_rnn" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bphs" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -404,7 +477,29 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train/spy500_rnn.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train/test1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bphs" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/train" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train/test2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -414,19 +509,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.spy500_rnn" />
-      <item itemvalue="Python.spy500_by_hs_jp_vix" />
       <item itemvalue="Python.hs_by_spy500_vix_hs" />
       <item itemvalue="Python.spy500_high_open" />
-      <item itemvalue="Python.dowload_data_from_yahoo" />
+      <item itemvalue="Python.bn_test" />
+      <item itemvalue="Python.test1" />
+      <item itemvalue="Python.test2" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.spy500_high_open" />
-        <item itemvalue="Python.dowload_data_from_yahoo" />
+        <item itemvalue="Python.test2" />
+        <item itemvalue="Python.test1" />
+        <item itemvalue="Python.bn_test" />
         <item itemvalue="Python.hs_by_spy500_vix_hs" />
-        <item itemvalue="Python.spy500_by_hs_jp_vix" />
-        <item itemvalue="Python.spy500_rnn" />
+        <item itemvalue="Python.spy500_high_open" />
       </list>
     </recent_temporary>
   </component>
@@ -446,12 +541,12 @@
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1926" height="1083" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21748401" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25239617" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34832636" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3294979" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.47594142" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39853558" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -516,44 +611,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/train/train_old/rnn_ud.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/remote_sources/-739603640/-1845054326/tensorflow/python/framework/common_shapes.py" />
-    <entry file="file://$PROJECT_DIR$/data/dz.csv" />
-    <entry file="file://$PROJECT_DIR$/train/train_old/run_dz.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1485">
-          <caret line="103" column="78" selection-start-line="103" selection-start-column="78" selection-end-line="103" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/run_dev.py" />
-    <entry file="file://$PROJECT_DIR$/train/train_old/rnn_div.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train/train_old/rnn_4.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="53" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train/train_old/rnn_44.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/train/train_old/rnn_hs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -630,13 +687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/ml.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-221">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
@@ -733,13 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/dowload_data_from_yahoo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/train/train_old/rnn_bp_open_plus3.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1815">
@@ -775,13 +818,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/bp.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="4362" column="11" selection-start-line="4362" selection-start-column="11" selection-end-line="4362" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/uk.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="473">
@@ -810,13 +846,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tool/dowload_data_from_yahoo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/bp.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="4357" column="81" selection-start-line="4357" selection-start-column="81" selection-end-line="4357" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/importer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train/spy500_high_open_gragh.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="69" column="21" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="327" selection-start-line="327" selection-end-line="327" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/ml.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train/bn_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="20" lean-forward="true" selection-end-line="13" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train/spy500_igh_open.py" />
+    <entry file="file://$PROJECT_DIR$/train/spy500_high_open2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="49" column="51" selection-start-line="49" selection-start-column="50" selection-end-line="49" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train/test1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train/test2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/train/spy500_high_open.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="39" column="2" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="876">
+          <caret line="103" column="11" selection-start-line="103" selection-start-column="11" selection-end-line="103" selection-end-column="11" />
         </state>
       </provider>
     </entry>

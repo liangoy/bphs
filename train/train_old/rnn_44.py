@@ -14,7 +14,7 @@ data = pd.merge(data_bp, data_hs, on='Date', how='outer').sort_values(by='Date')
 data = data.fillna(method='ffill')
 
 data = np.array(data)[:-1, 1:]
-data = np.array(data, dtype=np.float32)
+data = np.array(data, dtype=np.float16)
 data_t = data[1:]
 data_t_1 = data[:-1] + 0.0000001
 
@@ -52,15 +52,15 @@ def next(data, bs=batch_size, random=True):
     return a, b, c
 
 
-x = tf.placeholder(shape=[batch_size, long - 1, 10], dtype=tf.float32)
-y = tf.placeholder(shape=[batch_size, long - 1, 10], dtype=tf.float32)
-z_ = tf.placeholder(shape=[batch_size, 4], dtype=tf.float32)
+x = tf.placeholder(shape=[batch_size, long - 1, 10], dtype=tf.float16)
+y = tf.placeholder(shape=[batch_size, long - 1, 10], dtype=tf.float16)
+z_ = tf.placeholder(shape=[batch_size, 4], dtype=tf.float16)
 
 X = tf.nn.sigmoid(x) - 0.5
 Y = tf.nn.sigmoid(y) - 0.5
 
 gru_x_open = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
-state_x_open = gru_x_open.zero_state(batch_size, dtype=tf.float32)
+state_x_open = gru_x_open.zero_state(batch_size, dtype=tf.float16)
 with tf.variable_scope('RNN_x_open'):
     for timestep in range(long - 1):
         if timestep == 1:
@@ -69,7 +69,7 @@ with tf.variable_scope('RNN_x_open'):
     out_put_x_open = state_x_open
 
 gru_x_high = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
-state_x_high = gru_x_high.zero_state(batch_size, dtype=tf.float32)
+state_x_high = gru_x_high.zero_state(batch_size, dtype=tf.float16)
 with tf.variable_scope('RNN_x_high'):
     for timestep in range(long - 1):
         if timestep == 1:
@@ -78,7 +78,7 @@ with tf.variable_scope('RNN_x_high'):
     out_put_x_high = state_x_high
 
 gru_x_low = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
-state_x_low = gru_x_low.zero_state(batch_size, dtype=tf.float32)
+state_x_low = gru_x_low.zero_state(batch_size, dtype=tf.float16)
 with tf.variable_scope('RNN_x_low'):
     for timestep in range(long - 1):
         if timestep == 1:
@@ -87,7 +87,7 @@ with tf.variable_scope('RNN_x_low'):
     out_put_x_low = state_x_low
 
 gru_x_close = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
-state_x_close = gru_x_close.zero_state(batch_size, dtype=tf.float32)
+state_x_close = gru_x_close.zero_state(batch_size, dtype=tf.float16)
 with tf.variable_scope('RNN_x_close'):
     for timestep in range(long - 1):
         if timestep == 1:

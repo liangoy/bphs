@@ -13,17 +13,17 @@ def bn(x):
 
 
 def bn_with_wb(x):
-    w = tf.Variable(tf.random_uniform([x.shape[1].value], -1.0, 1.0))
-    b = tf.Variable(tf.random_uniform([x.shape[1].value], -1.0, 1.0))
+    w = tf.Variable(tf.random_normal([x.shape[1].value]))
+    b = tf.Variable(tf.random_normal([x.shape[1].value]))
     return bn(x) * w + b
 
 
 def layer_basic(x, size=0, with_b=True):
     if not size:
         size = x.shape[1].value
-    w = tf.Variable(tf.random_uniform([x.shape[1].value, size], -1.0, 1.0))
+    w = tf.Variable(tf.random_normal([x.shape[1].value, size],dtype=tf.float16))
     if with_b:
-        b = tf.Variable(tf.random_uniform([size], -1.0, 1.0))
+        b = tf.Variable(tf.random_normal([size],dtype=tf.float16))
         return tf.matmul(x, w) + b
     else:
         return tf.matmul(x, w)

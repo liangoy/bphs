@@ -14,7 +14,7 @@ data = pd.merge(data_jp, data_bp, on='Date', how='left').sort_values(by='Date')
 data = data.fillna(method='ffill')
 
 data = np.array(data)[1:, 1:]
-data = np.array(data, dtype=np.float32)
+data = np.array(data, dtype=np.float16)
 data_t = data[1:]
 data_t_1 = data[:-1] + 0.0000001
 
@@ -53,15 +53,15 @@ def next(data, bs=batch_size, random=True):
     return a, b, c
 
 
-x = tf.placeholder(shape=[batch_size, long - 1, 6], dtype=tf.float32)
-y = tf.placeholder(shape=[batch_size, long - 1, 5], dtype=tf.float32)
-z_ = tf.placeholder(shape=[batch_size, 3], dtype=tf.float32)
+x = tf.placeholder(shape=[batch_size, long - 1, 6], dtype=tf.float16)
+y = tf.placeholder(shape=[batch_size, long - 1, 5], dtype=tf.float16)
+z_ = tf.placeholder(shape=[batch_size, 3], dtype=tf.float16)
 
 xy = tf.concat([x, y], axis=-1)
 XY = tf.nn.tanh(xy)
 
 gru = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
-state = gru.zero_state(batch_size, dtype=tf.float32)
+state = gru.zero_state(batch_size, dtype=tf.float16)
 with tf.variable_scope('RNN'):
     for timestep in range(long - 1):
         if timestep == 1:
@@ -71,7 +71,7 @@ with tf.variable_scope('RNN'):
 
 # ================================================================
 gru_a = GRUCell(num_units=8, reuse=tf.AUTO_REUSE, activation=tf.nn.elu)
-state_a = gru_a.zero_state(batch_size, dtype=tf.float32)
+state_a = gru_a.zero_state(batch_size, dtype=tf.float16)
 with tf.variable_scope('RNN_a'):
     for timestep in range(long - 1):
         if timestep == 1:
